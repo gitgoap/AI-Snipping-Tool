@@ -15,11 +15,13 @@ We often need to type out text from videos, images, or thumbnails on websites. T
 
 ### A math lecture video full of complex equations in Laplacian notation. Typing or searching would be a total pain.
 
+
 ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1d84b1e5-6e1e-49b4-aefc-3482b74f29d6)
 <br>
 ### Copying of code to the editor directly is not possible.
 
 # Proposed Solution
+![main logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/892a1b42-f677-455e-ac77-b9180198bf9f)
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
 YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. This will allow us to extract hyperlinks, code, complex equations, etc. 
