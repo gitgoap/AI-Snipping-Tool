@@ -1,7 +1,16 @@
 # Overveiw
 
 ## ```AI ScreenShot```
-It is an chrome extension that takes custom screen shot and extract text out of it. Detailed explanation below
+It is a Chrome extension that takes custom screenshots and extracts text out of them. 
+
+![Screenshot 2024-05-12 041143](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/ddbb446f-86e4-46e1-8c45-18115cdec83c)
+
+
+## Chrome Extension popup
+
+![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
+
+## Detailed explanation below.
 # Problem Statement
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
