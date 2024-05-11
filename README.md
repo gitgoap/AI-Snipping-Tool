@@ -21,7 +21,11 @@
 ### Copying of code to the editor directly is not possible.
 
 # Proposed Solution
-![main logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/892a1b42-f677-455e-ac77-b9180198bf9f)
+
+![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
+
+
+
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
 - ### YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. This will allow us to extract hyperlinks, code, complex equations, etc. 
@@ -41,7 +45,9 @@ Working and Tech Stack
 - Tailwind CSS (frontend)
 - JavaScript (Backend)
 - Tesseract (OCR recognition)
-- Google Gemini API (LLM (AI) for summerization)
+- Google Gemini API (LLM (AI) for summarization)
+
+
 
 
 
@@ -52,10 +58,11 @@ Working and Tech Stack
 
  #    Working
 
-Our Chrome extension is utilizing Tesseract OCR for charcter recozniation in the image and Google Gemini API is used for summization of text.
+Our Chrome extension is utilizing Tesseract OCR for character recognition in the image and Google Gemini API is used for summarization of text.
+
  
 Similarly, if the user chooses to summarize the webpage then it will also be done with the help of Google Gemini.
-All the summarized extracted text are sent back to the Chrome extension popup window for display and coping.
+All the summarized extracted text is sent back to the Chrome extension popup window for display and coping.
 
 
 > About Google Gemini: Gemini is the latest and best Large Language Model developed by Google. It can perform any task related to natural language (text) and is also capable of code and image generation.
