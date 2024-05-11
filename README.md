@@ -58,10 +58,10 @@ Working and Tech Stack
  #    Working
 
 ## Our Chrome extension is utilizing Tesseract OCR for character recognition in the image and Google Gemini API is used for summarization of text.
-1. The extension's background script worker.js listens for user actions, such as clicking the extension's icon or using the context menu.
-2. When the user initiates a screenshot, the extension captures the visible tab using chrome.tabs.captureVisibleTab and gets the screenshot data as a PNG image.
-3. The extension then injects several scripts (helper.js, response.js, elements.js, and custom-elements.min.js) into the current tab's context. These scripts are responsible for rendering the OCR result and handling the OCR process.
-4. The ocr-result custom element, defined in elements.js, is used to perform the OCR operation. This custom element utilizes the tesseract.js library, which is a pure JavaScript port of the Tesseract OCR engine.
+1. The extension's background script ```worker.js``` listens for user actions, such as clicking the extension's icon or using the context menu.
+2. When the user initiates a screenshot, the extension captures the visible tab using ```chrome.tabs.captureVisibleTab``` and gets the screenshot data as a PNG image.
+3. The extension then injects several scripts (```helper.js```, ```response.js```, ```elements.js```, and ```custom-elements.min.js```) into the current tab's context. These scripts are responsible for rendering the OCR result and handling the OCR process.
+4. The ocr-result custom element, defined in ```elements.js```, is used to perform the OCR operation. This custom element utilizes the ```tesseract.js``` library, which is a pure JavaScript port of the Tesseract OCR engine.
 5. The ocr-result element is configured with user preferences such as language, accuracy, and other settings fetched from the Chrome extension's local storage.
 6. The captured screenshot data (PNG image) is passed to the ocr-result element, which then runs the Tesseract OCR engine on the image to extract the text.
 7. The extracted text is rendered within the ocr-result element, allowing the user to view and interact with the OCR results.
@@ -79,7 +79,7 @@ It also allows developers to use its API to develop AI apps as we proposed here.
 
 # Future Scope
 ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
-### Answers questions just with a screenshot
+### Answers questions just with a screenshots
 
 
 
