@@ -1,6 +1,6 @@
 # Problem Statement
 
-We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
+### We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
 
 ## Some of the scenarios where this problem arises:
 ![Screenshot 2024-05-11 050941](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c)
@@ -24,14 +24,17 @@ We often need to type out text from videos, images, or thumbnails on websites. T
 ![main logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/892a1b42-f677-455e-ac77-b9180198bf9f)
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
-YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. This will allow us to extract hyperlinks, code, complex equations, etc. 
+- ### YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. This will allow us to extract hyperlinks, code, complex equations, etc. 
 
-Full-page Screenshot: Capture the entire YouTube page with video, thumbnails, and descriptions.
+- ### Full-page Screenshot: Capture the entire YouTube page with video, thumbnails, and descriptions.
 
-Custom Area Screenshot: Select any area of a webpage/video to screenshot. This will allow to extract images from a particular part of the image.
+- ### Custom Area Screenshot: Select any area of a webpage/video to screenshot. This will allow to extract images from a particular part of the image.
 
 Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+<br>
+![Screenshot 2024-05-11 121827](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/000736d9-2311-41ca-b9e3-30d530720bb6)
 Working and Tech Stack
+
 
 # Tech Stack
 - HTML (frontend)
