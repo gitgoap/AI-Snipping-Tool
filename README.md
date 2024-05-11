@@ -35,7 +35,6 @@ Working and Tech Stack
 - HTML (frontend)
 - Tailwind CSS (frontend)
 - JavaScript (Backend)
-- Figma (UI design)
 - Postman (API testing)
 - Google Gemini API (LLM (AI) application)
 
