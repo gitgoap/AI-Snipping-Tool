@@ -1,6 +1,4 @@
-// tests
-// https://www.youtube.com/
-// https://www.google.com/search?q=english+text&tbm=isch
+
 
 {
     if (customElements.get('ocr-container') === undefined) {
@@ -97,11 +95,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             :host {
               --fg: #031b30;
               --bg: #0d1117;
-              --bg-inputs: #3fb950;
+              --bg-inputs: #b99b3f;
               --bg-select: #0d1117;
               --bg-result: #ffffff;
-              --bg-inputs-hover: #03FB97;
-              --accent: #3fb950;
+              --bg-inputs-hover: #fb036a;
+              --accent: #3fa5b9;
               --border-color: rgb(75, 85, 99);
               --width: 400px;
               --height: 300px;
@@ -111,7 +109,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               --height: 70vh;
             }
             #body {
-              font-size: 13px;
+              font-size: 15px;
               font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
               padding: 20px;
               display: flex;
@@ -156,7 +154,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             }
             select option, select optgroup {
               background-color: var(--bg-select);
-              color: white;
+              color: grey;
             }
             input[type=button]:disabled {
               opacity: 0.5;
@@ -228,7 +226,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             }
             */
             .sep {
-              background-color: #b7ae9a;
+              background-color:#b79e9a;
               height: 15px;
             }
             #tools_ {
@@ -245,6 +243,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             #tools .tool-buttons {
               display: flex;
               gap: var(--gap);
+              color: ;
             }
             #result-in-process {
               display: flex;
@@ -447,6 +446,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               <div class="tool-buttons">
                 <button id="expand" style="display:none;">Expand</button>
                 <button id="post" disabled title="${this.locales.post}"  style="display:none;">Post Result</button>
+                <button id="summer">summerized</button>
                 <button id="copy" disabled style="width: 100px;">Copy Text</button>
                 <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
               </div>
