@@ -161,7 +161,7 @@ chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     
     chrome.tabs.create({
-      url: "https://amanprakash.dev/AI-ScreenShot",
+      url: "https://github.com/gitgoap/HackFest-24-IIT-Dhanbad",
     });
   } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
     
