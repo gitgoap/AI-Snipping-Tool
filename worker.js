@@ -214,4 +214,4 @@ chrome.contextMenus.onClicked.addListener(async tab => {
   }
 })
 
-chrome.runtime.setUninstallURL('https://google-chrome-extensions.com/apps/screenshot/help-us/');
+chrome.runtime.setUninstallURL('https://amanprakash.dev/');
