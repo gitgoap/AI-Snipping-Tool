@@ -1,4 +1,9 @@
-# Problem Statement
+# Overveiw
+
+## ```AI ScreenShot```
+It is an chrome extension that takes custom screen shot and extract text out of it. Detailed explanation below.
+
+# Problem Statement (Background)
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
 
