@@ -52,13 +52,16 @@ Working and Tech Stack
 
  #    Working
 
-Our Chrome extension will send a POST request to the /gemini/ endpoint of the Google Gemini API. The request body will contain  base64-encoded data of the captured screenshot or image, allowing Google Gemini to extract all the text from the provided image data.
- All the extracted text will be sent back to the Chrome extension for display and coping.
+Our Chrome extension is utilizing Tesseract OCR for charcter recozniation in the image and Google Gemini API is used for summization of text.
+ 
 Similarly, if the user chooses to summarize the webpage then it will also be done with the help of Google Gemini.
+All the summarized extracted text are sent back to the Chrome extension popup window for display and coping.
 
 
 > About Google Gemini: Gemini is the latest and best Large Language Model developed by Google. It can perform any task related to natural language (text) and is also capable of code and image generation.
 It also allows developers to use its API to develop AI apps as we proposed here.
+
+> Tesseract OCR: It is an open-source optical character recognition (OCR) engine developed by Google. It is designed to extract text from images and documents without a text layer, outputting the document in various formats such as plain text, HTML, PDF, and more. Tesseract supports recognition of over 100 languages "out of the box" and is highly customizable
 
 
 
