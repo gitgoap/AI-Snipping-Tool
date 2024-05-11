@@ -20,7 +20,7 @@
 <br>
 ### Copying of code to the editor directly is not possible.
 
-# Proposed Solution
+# Solution
 
 ![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
 
@@ -44,7 +44,7 @@ Working and Tech Stack
 - Tailwind CSS (frontend)
 - JavaScript (Backend)
 - Tesseract (OCR recognition)
-- Google Gemini API (LLM (AI) for summarization)
+- Google Gemini API (LLM for summarization)
 
 
 
