@@ -67,7 +67,7 @@ Working and Tech Stack
 7. The extracted text is rendered within the ocr-result element, allowing the user to view and interact with the OCR results.
 
  
-### Similarly, if the user chooses to summarize the webpage then it will also be done with the help of Google Gemini.
+### Similarly, if the user chooses to summarize the webpage then it will be done with the help of Google Gemini.
 All the summarized extracted text is sent back to the Chrome extension popup window for display and coping.
 
 
