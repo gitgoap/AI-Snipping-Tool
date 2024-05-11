@@ -40,8 +40,8 @@ Working and Tech Stack
 - HTML (frontend)
 - Tailwind CSS (frontend)
 - JavaScript (Backend)
-- Postman (API testing)
-- Google Gemini API (LLM (AI) application)
+- Tesseract (OCR recognition)
+- Google Gemini API (LLM (AI) for summerization)
 
 
 
