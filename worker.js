@@ -161,7 +161,7 @@ chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
     
     chrome.tabs.create({
-      url: "https://google-chrome-extensions.com/apps/screenshot/welcome/",
+      url: "https://amanprakash.dev/AI-ScreenShot",
     });
   } else if (details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
     
