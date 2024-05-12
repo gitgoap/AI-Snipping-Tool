@@ -446,7 +446,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               <div class="tool-buttons">
                 <button id="expand" style="display:none;">Expand</button>
                 <button id="post" disabled title="${this.locales.post}"  style="display:none;">Post Result</button>
-                <button id="summer">summerized</button>
+                <button id="summer">summerize</button>
                 <button id="copy" disabled style="width: 100px;">Copy Text</button>
                 <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
               </div>
