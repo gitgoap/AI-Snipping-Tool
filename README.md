@@ -10,7 +10,7 @@ It is a Chrome extension that takes custom screenshots and extracts text out of 
 
 ![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
 
-## Detailed explanation below.
+## Detailed explanation below:
 # Problem Statement
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
@@ -35,7 +35,6 @@ It is a Chrome extension that takes custom screenshots and extracts text out of 
 
 # Solution
 
-![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
 
 
 
@@ -43,21 +42,24 @@ It is a Chrome extension that takes custom screenshots and extracts text out of 
 
 
 
-- ### Custom Area Screenshot: Select any area of a webpage/video to screenshot. This will allow to extract images from a particular part of the image. This will allow us to extract hyperlinks, code, complex equations, etc. 
+- ### Custom Area Screenshot: 
+Select any area of a webpage/video to screenshot. This will allow to extract images from a particular part of the image. This will allow us to extract hyperlinks, code, complex equations, etc. 
 
-- ### Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
-- ### YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. (Not Implemented)
+- ### Webpage Summary: 
+Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+- ### YouTube Video Screenshot: 
+Capture text in the current video frame on the YouTube website. (Not Implemented)
 <br>
-![Screenshot 2024-05-11 121827](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/000736d9-2311-41ca-b9e3-30d530720bb6)
-Working and Tech Stack
+![Working and Tech Stack](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/000736d9-2311-41ca-b9e3-30d530720bb6)
+
 
 
 # Tech Stack
-- HTML (frontend)
-- Tailwind CSS (frontend)
-- JavaScript (Backend)
-- Tesseract (OCR recognition)
-- Google Gemini API (LLM for summarization)
+- **HTML** (frontend)
+- **Tailwind CSS** (frontend)
+- **JavaScript** (backend)
+- **Tesseract** (OCR recognition)
+- **Google Gemini API** (LLM for summarization)
 
 
 
@@ -70,7 +72,7 @@ Working and Tech Stack
 
  #    Working
 
-## Our Chrome extension is utilizing Tesseract OCR for character recognition in the image and Google Gemini API is used for summarization of text.
+## Our Chrome extension is utilizing **Tesseract OCR** for character recognition in the image and Google Gemini API is used for summarization of text.
 1. The extension's background script ```worker.js``` listens for user actions, such as clicking the extension's icon or using the context menu.
 2. When the user initiates a screenshot, the extension captures the visible tab using ```chrome.tabs.captureVisibleTab``` and gets the screenshot data as a PNG image.
 3. The extension then injects several scripts (```helper.js```, ```response.js```, ```elements.js```, and ```custom-elements.min.js```) into the current tab's context. These scripts are responsible for rendering the OCR result and handling the OCR process.
