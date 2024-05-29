@@ -92,7 +92,7 @@ It also allows developers to use its API to develop AI apps as we proposed here.
 
 # Future Scope
 ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
-### Answers questions just with a screenshots
+### Answers questions just with screenshots
 
 
 
