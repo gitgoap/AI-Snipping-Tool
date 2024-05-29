@@ -35,8 +35,6 @@ It is a Chrome extension that takes custom screenshots and extracts text out of 
 
 # Solution
 
-![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
-
 
 
 ## We propose to develop a Chrome extension {AI Screenshot}:
