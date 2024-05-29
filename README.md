@@ -1,36 +1,106 @@
 # Overveiw
 
-## ```AI ScreenShot```
-It is a Chrome extension that takes custom screenshots and extracts text out of them. 
+## ```AI Snipping Tool```
+It is a Chrome extension that takes custom screenshots and extracts text from them. 
 
 ![Screenshot 2024-05-12 041143](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/ddbb446f-86e4-46e1-8c45-18115cdec83c)
 
+</br>
 
 ## Chrome Extension popup
 
-![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
 
-## Detailed explanation below.
-# Problem Statement
+
+![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
+</br></br>
+## Built With
+
+👉 Front-End Stacks:
+<p align="left">
+  <a href="](https://html.com">
+    <img src="https://skillicons.dev/icons?i=html" />
+  </a>
+ <a href="https://www.css3.com">
+    <img src="https://skillicons.dev/icons?i=css" />
+  </a>
+
+ <a href="https://www.javascript.com/">
+    <img src="https://skillicons.dev/icons?i=js" />
+  </a>
+
+  
+</p>
+
+<a href="https://github.com/tesseract-ocr/tesseract">
+ Tesseract OCR 
+  </a>
+
+  </br>
+  </br>
+  </br>
+
+  ## Getting Started 👩‍💻
+
+> ⚠️Prerequisites
+>
+> - Recommended to have the latest version of Google Chrome 
+
+
+To get a local copy up and running follow these simple steps.
+
+
+### Installation
+
+1. Open Git Bash and change directory
+   
+   ``` sh
+   cd path
+   ``` 
+3. Clone the repo
+
+```sh
+ git clone https://github.com/gitgoap/AI-Snipping-Tool_IIT-D_Hackathon.git
+```
+
+3. Open Google Chrome
+
+4. Click **3 dots** at top right corner.
+
+5. Go to Extensions>  Manage Extensions
+
+6. Click **Load Unpack** and select the repo where you saved initially while cloning.
+
+
+   </br></br></br>
+
+## Contribution Guide
+ - Make sure to raise an issue before raising a Pull Request.
+ - Mention the issue number (Eg: #4) while raising a Pull Request in the description.
+   
+</br></br>
+## Problem Statement
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
-
+</br>
 ## Some of the scenarios where this problem arises:
-![Screenshot 2024-05-11 050941](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c)
+<img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c" height= 300 >
 
 ### In the MrBeast Riddle video, he displays a YouTube link to visit as part of the riddle, but manually typing the link is inefficient and prone to errors.
 
 
+</br>
 
 
 
-![Screenshot 2024-05-11 050949](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/29019305-a63d-4443-89e8-2a67265befbe)
-
-### A math lecture video full of complex equations in Laplacian notation. Typing or searching would be a total pain.
 
 
-![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1d84b1e5-6e1e-49b4-aefc-3482b74f29d6)
-<br>
+
+
+
+<img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1d84b1e5-6e1e-49b4-aefc-3482b74f29d6" height= 300 >
+
+</br>
+
 ### Copying of code to the editor directly is not possible.
 
 # Solution
@@ -38,31 +108,25 @@ It is a Chrome extension that takes custom screenshots and extracts text out of 
 ![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
 
 
+</br>
 
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
 
 
-- ### Custom Area Screenshot: Select any area of a webpage/video to screenshot. This will allow to extract images from a particular part of the image. This will allow us to extract hyperlinks, code, complex equations, etc. 
-
-- ### Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
-- ### YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. (Not Implemented)
-<br>
-![Screenshot 2024-05-11 121827](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/000736d9-2311-41ca-b9e3-30d530720bb6)
-Working and Tech Stack
+-   This will allow the extraction of images from a particular part of the image to extract hyperlinks, code, etc. 
 
 
-# Tech Stack
-- HTML (frontend)
-- Tailwind CSS (frontend)
-- JavaScript (Backend)
-- Tesseract (OCR recognition)
-- Google Gemini API (LLM for summarization)
+-  YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. (Not Implemented)
 
 
 
 
 
+
+
+
+</br></br>
 
 
 
@@ -80,19 +144,22 @@ Working and Tech Stack
 7. The extracted text is rendered within the ocr-result element, allowing the user to view and interact with the OCR results.
 
  
-### Similarly, if the user chooses to summarize the webpage then it will be done with the help of Google Gemini.
-All the summarized extracted text is sent back to the Chrome extension popup window for display and coping.
+</br>
 
 
-> About Google Gemini: Gemini is the latest and best Large Language Model developed by Google. It can perform any task related to natural language (text) and is also capable of code and image generation.
-It also allows developers to use its API to develop AI apps as we proposed here.
 
 > Tesseract OCR: It is an open-source optical character recognition (OCR) engine developed by Google. It is designed to extract text from images and documents without a text layer, outputting the document in various formats such as plain text, HTML, PDF, and more. Tesseract supports recognition of over 100 languages "out of the box" and is highly customizable
 
+</br></br>
 
 # Future Scope
-![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
-### Answers questions just with a screenshots
+
+## Integration of Gemini API key for:
+
+- ### Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+  ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
+
+### Answers questions just with screenshots
 
 
 
