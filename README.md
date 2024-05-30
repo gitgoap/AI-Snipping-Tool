@@ -117,7 +117,7 @@ To get a local copy up and running follow these simple steps.
 -   This will allow the extraction of images from a particular part of the image to extract hyperlinks, code, etc. 
 
 
--  YouTube Video Screenshot: Capture text in the current video frame on the YouTube website. (Not Implemented)
+
 
 
 
@@ -134,7 +134,7 @@ To get a local copy up and running follow these simple steps.
 
  #    Working
 
-## Our Chrome extension is utilizing Tesseract OCR for character recognition in the image and Google Gemini API is used for summarization of text.
+## Our Chrome extension is utilizing Tesseract OCR for character recognition in the image.
 1. The extension's background script ```worker.js``` listens for user actions, such as clicking the extension's icon or using the context menu.
 2. When the user initiates a screenshot, the extension captures the visible tab using ```chrome.tabs.captureVisibleTab``` and gets the screenshot data as a PNG image.
 3. The extension then injects several scripts (```helper.js```, ```response.js```, ```elements.js```, and ```custom-elements.min.js```) into the current tab's context. These scripts are responsible for rendering the OCR result and handling the OCR process.
@@ -152,14 +152,22 @@ To get a local copy up and running follow these simple steps.
 
 </br></br>
 
-# Future Scope
+# Future Scope / Features
 
-## Integration of Gemini API key for:
+- YouTube Video Screenshot: Capture text in the current video frame only on the YouTube website. 
 
-- ### Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+  </br>
+  
+- Integration of Gemini API key for:
+
+   Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+  
+</br>
+
+- Answers questions just with screenshots  
   ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
 
-### Answers questions just with screenshots
+
 
 
 
