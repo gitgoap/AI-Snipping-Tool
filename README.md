@@ -168,6 +168,15 @@ To get a local copy up and running follow these simple steps.
   ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
 
 
+ 
+ 
+<h1 align = "center">Our Contributors ❤️</h2>
+<div align = "center">
+ <h3>Thank you for contributing to our repository</h3>
+
+![Contributors](https://contrib.rocks/image?repo=gitgoap/AI-Snipping-Tool_IIT-D_Hackathon)
+
+</div>
 
 
 
