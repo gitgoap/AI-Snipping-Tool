@@ -3,12 +3,14 @@
 ## ```AI ScreenShot```
 It is a Chrome extension that takes custom screenshots and extracts text out of them. 
 
-![Screenshot 2024-05-12 041143](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/ddbb446f-86e4-46e1-8c45-18115cdec83c)
+![34](https://github.com/Nirvanjha2004/AI-Snipping-Tool_IIT-D_Hackathon/assets/140783287/caf89205-423d-47ab-ae74-8d746bdeb7ea)
+
 
 
 ## Chrome Extension popup
-
 ![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
+
+![Screenshot 2024-06-02 222147](https://github.com/Nirvanjha2004/AI-Snipping-Tool_IIT-D_Hackathon/assets/140783287/389201c3-2794-4cca-bbaa-07201e914550)
 
 ## Detailed explanation below.
 # Problem Statement
