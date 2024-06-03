@@ -103,12 +103,10 @@ To get a local copy up and running follow these simple steps.
 
 ### Copying of code to the editor directly is not possible.
 
+</br>
+
 # Solution
 
-![logo](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/121ddde6-77ed-4dad-b9ff-7da6ddffdb38)
-
-
-</br>
 
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
