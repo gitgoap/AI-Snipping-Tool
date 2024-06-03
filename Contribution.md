@@ -86,7 +86,7 @@ git push -u origin Branch_Name
 
 - Go to your repository in the browser and click on compare and pull requests.
 Then add a title and description to your pull request that explains your contribution.  
-<img src="https://github.com/akshitagupta15june/Face-X/blob/master/.github/user/compare.jpeg">
+
 
 
 - Create a Pull Request which will be reviewed and suggestions would be added to improve it.
