@@ -1,4 +1,4 @@
-# Overveiw
+# Overview
 
 ## ```AI Snipping Tool```
 It is a Chrome extension that takes custom screenshots and extracts text from them. 
@@ -75,7 +75,7 @@ To get a local copy up and running follow these simple steps.
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
- - Mention the issue number (Eg: #4) while raising a Pull Request in the description.
+ - Mention the issue number (**Eg: #4**) while raising a Pull Request in the description.
    
 </br></br>
 ## Problem Statement
@@ -85,7 +85,7 @@ To get a local copy up and running follow these simple steps.
 ## Some of the scenarios where this problem arises:
 <img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c" height= 300 >
 
-### In the MrBeast Riddle video, he displays a YouTube link to visit as part of the riddle, but manually typing the link is inefficient and prone to errors.
+### In the **MrBeast Riddle video**, he displays a YouTube link to visit as part of the riddle, but manually typing the link is inefficient and prone to errors.
 
 
 </br>
@@ -103,10 +103,11 @@ To get a local copy up and running follow these simple steps.
 
 ### Copying of code to the editor directly is not possible.
 
-# Solution
-
 
 </br>
+
+# Solution
+
 
 ## We propose to develop a Chrome extension {AI Screenshot}:
 
@@ -124,7 +125,7 @@ To get a local copy up and running follow these simple steps.
 
 
 
-</br></br>
+</br>
 
 
 
@@ -132,37 +133,36 @@ To get a local copy up and running follow these simple steps.
 
  #    Working
 
-## Our Chrome extension is utilizing Tesseract OCR for character recognition in the image.
+## Our Chrome extension is utilizing **Tesseract OCR** for character recognition in the image:
 1. The extension's background script ```worker.js``` listens for user actions, such as clicking the extension's icon or using the context menu.
 2. When the user initiates a screenshot, the extension captures the visible tab using ```chrome.tabs.captureVisibleTab``` and gets the screenshot data as a PNG image.
 3. The extension then injects several scripts (```helper.js```, ```response.js```, ```elements.js```, and ```custom-elements.min.js```) into the current tab's context. These scripts are responsible for rendering the OCR result and handling the OCR process.
-4. The ocr-result custom element, defined in ```elements.js```, is used to perform the OCR operation. This custom element utilizes the ```tesseract.js``` library, which is a pure JavaScript port of the Tesseract OCR engine.
+4. The ocr-result custom element, defined in ```elements.js```, is used to perform the OCR operation. This custom element utilizes the ```tesseract.js``` library, which is a pure **JavaScript port** of the **Tesseract OCR** engine.
 5. The ocr-result element is configured with user preferences such as language, accuracy, and other settings fetched from the Chrome extension's local storage.
-6. The captured screenshot data (PNG image) is passed to the ocr-result element, which then runs the Tesseract OCR engine on the image to extract the text.
-7. The extracted text is rendered within the ocr-result element, allowing the user to view and interact with the OCR results.
+6. The captured screenshot data (PNG image) is passed to the **ocr-result element**, which then runs the **Tesseract OCR** engine on the image to extract the text.
+7. The extracted text is rendered within the **ocr-result element**, allowing the user to view and interact with the OCR results.
 
  
 </br>
 
 
 
-> Tesseract OCR: It is an open-source optical character recognition (OCR) engine developed by Google. It is designed to extract text from images and documents without a text layer, outputting the document in various formats such as plain text, HTML, PDF, and more. Tesseract supports recognition of over 100 languages "out of the box" and is highly customizable
+> **Tesseract OCR**: It is an open-source optical character recognition (OCR) engine developed by Google. It is designed to extract text from images and documents without a text layer, outputting the document in various formats such as plain text, HTML, PDF, and more. **Tesseract** supports recognition of over **100 languages** "out of the box" and is highly customizable.
 
 </br></br>
 
 # Future Scope / Features
 
-- YouTube Video Screenshot: Capture text in the current video frame only on the YouTube website. 
+- **YouTube Video Screenshot:** Capture text in the current video frame only on the YouTube website. 
 
-  </br>
   
-- Integration of Gemini API key for:
-
-   Webpage Summary: Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
   
-</br>
+- Integration of **Gemini API** key for:
 
-- Answers questions just with screenshots  
+   **Webpage Summary:** Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
+
+- Answers questions just with screenshots: 
+
   ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
 
 
