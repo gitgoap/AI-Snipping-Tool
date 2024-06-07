@@ -70,6 +70,8 @@ To get a local copy up and running follow these simple steps.
 
 6. Click **Load Unpack** and select the repo where you saved initially while cloning.
 
+ ![Screenshot 2024-06-03 170016](screenshot-3.png)
+
 
    </br></br></br>
 
