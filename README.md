@@ -3,7 +3,7 @@
 ## ```AI Snipping Tool```
 It is a Chrome extension that takes custom screenshots and extracts text from them. 
 
-![Screenshot 2024-05-12 041143](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/ddbb446f-86e4-46e1-8c45-18115cdec83c)
+![Screenshot 2024-06-04 174435](screenshot-1.png)
 
 </br>
 
@@ -11,7 +11,7 @@ It is a Chrome extension that takes custom screenshots and extracts text from th
 
 
 
-![Screenshot 2024-05-12 041251](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/03af36c3-dd15-4d34-b026-ebaac0a65b4d)
+![Screenshot 2024-06-04 174952](screenshot-2.png)
 </br></br>
 ## Built With
 
@@ -69,6 +69,8 @@ To get a local copy up and running follow these simple steps.
 5. Go to Extensions>  Manage Extensions
 
 6. Click **Load Unpack** and select the repo where you saved initially while cloning.
+
+ ![Screenshot 2024-06-03 170016](screenshot-3.png)
 
 
    </br></br></br>
