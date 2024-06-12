@@ -3,15 +3,16 @@
 ## ```AI Snipping Tool```
 It is a Chrome extension that takes custom screenshots and extracts text from them. 
 
-![Screenshot 2024-06-04 174435](screenshot-1.png)
+
 
 </br>
 
 ## Chrome Extension popup
 
 
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b6e40063-3211-4ee9-a5c9-98bb78dd4656" height= 600 >
 
-![Screenshot 2024-06-04 174952](screenshot-2.png)
+
 </br></br>
 ## Built With
 
@@ -70,10 +71,22 @@ To get a local copy up and running follow these simple steps.
 
 6. Click **Load Unpack** and select the repo where you saved initially while cloning.
 
- ![Screenshot 2024-06-03 170016](screenshot-3.png)
+
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/3247e4fe-5c46-4c16-bb44-070753388f3c" height= 300 >
+
 
 
    </br></br></br>
+   
+## Steps to get Gemini API key
+ - Sign up at `https://ai.google.dev/aistudio`
+ 
+   
+ - Click on `Get API key`
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/9ae60e18-1966-4550-9ebc-59c468dec70c" height= 300 >
+
+
+  </br></br>
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
@@ -108,26 +121,7 @@ To get a local copy up and running follow these simple steps.
 
 </br>
 
-# Solution
 
-
-## We propose to develop a Chrome extension {AI Screenshot}:
-
-
-
--   This will allow the extraction of images from a particular part of the image to extract hyperlinks, code, etc. 
-
-
-
-
-
-
-
-
-
-
-
-</br>
 
 
 
@@ -158,10 +152,7 @@ To get a local copy up and running follow these simple steps.
 - **YouTube Video Screenshot:** Capture text in the current video frame only on the YouTube website. 
 
   
-  
-- Integration of **Gemini API** key for:
 
-   **Webpage Summary:** Summarize text from a screenshot capture of any webpage in the user-chosen language (MultiModal).
 
 - Answers questions just with screenshots: 
 
