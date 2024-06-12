@@ -17,19 +17,20 @@
                 shadow.innerHTML = `
           <style>
             #body {
+              display: flex;
               position: fixed;
               top: 10px;
               right: 30px;
               /* padding: 5px; */
               z-index: 10000000000;
               /* box-shadow: 0 0 2px #ccc; */
-              display: flex;
               gap: 5px;
               flex-direction: column;
               background-color: transparent;
-              max-height: calc(100vh - 20px);
+              height: 30vh;
+              max-height: 500px;
+              max-width: 50vw;
               color-scheme: light;
-              overflow: auto;
             }
           </style>
           <div id="body">
@@ -112,9 +113,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               font-size: 15px;
               font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
               padding: 20px;
-              display: flex;
               flex-direction: column;
-              height: var(--height);
               width: min(var(--width), calc(100vw, 2rem));
               color: var(--fg);
               background-color: var(--bg);
@@ -144,6 +143,8 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               font-size: inherit;
               font-weight: 500;
               box-sizing: border-box;
+              width: 9rem;
+              height: 3.5rem;
             }
             select {
               background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
@@ -178,10 +179,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             }
             #result, #result-in-process {
               min-height: 40px;
+              max-height: 10vh;
               background-color: var(--bg-result);
               margin: 0 0 20px 0;
-              overflow: auto;
-              flex: 1;
+              overflow-y: scroll;
+              overflow-x: auto;
+              flex: 0.5;
               padding: var(--gap);
               border-radius: 8px;
             }
@@ -194,6 +197,30 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             #result .ocr_par:last-child {
               margin-bottom: 0;
             }
+
+            #summary-area {
+              max-height: 10vh;
+              overflow-y: scroll;
+              overflow-x: auto;
+              flex: 0.5;
+              display: none;
+              padding: var(--gap);
+              border-radius: 8px;
+              margin: 0 0 20px 0;
+              background-color: var(--bg-result);
+            }
+            
+            .section-heading {
+              color: var(--bg-result);
+              margin-bottom: 0.5rem;
+              text-align: center;
+              text-decoration: underline;
+            }
+
+            #summary-heading {
+            display: none;
+            }
+
             .ocr_line {
               display: block;
             }
@@ -271,7 +298,30 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
   width: 100%;
   border-radius: 0.5rem;
 }
- 
+ #summarization-functions {
+              width: 9rem;
+              height: 3.5rem;
+            }
+            #summarize {
+              padding: 0.2rem;
+              margin: auto;
+              margin-left: 0.5rem;
+              margin-right: 0.5rem;
+              margin-bottom: 0.3rem;
+              max-width: 8rem;
+              max-height: 1.7rem;
+            }
+            input[type=text] {
+              border-radius: 8px;
+              margin: auto;
+              margin-left: 0.5rem;
+              margin-right: 0.5rem;
+              max-width: 8rem;
+              height: 1.3rem;
+              border-style: none;
+              padding: 0.1rem;
+              padding-left: 0.2rem;
+            }
 .star {
   font-size: 3vh;
   cursor: pointer;
@@ -322,7 +372,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               <span>Recognizing</span>
               <progress id="recognize" value="0" max="1"></progress>
             </div>
-
+             <div class="section-heading">OCR Text</div>   
             <div id="result" data-msg="Please wait..." style="display:none;"></div>
             <div id="result-in-process">
               <svg aria-hidden="true" class="spinner" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,6 +380,8 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                   <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
               </svg>
             </div>
+            <div class="section-heading" id="summary-heading">Summary</div>
+            <div id="summary-area"></div>
             <div id="tools">
               <select id="language" class="language_select">
                 <optgroup>
@@ -448,6 +500,10 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 <button id="post" disabled title="${this.locales.post}"  style="display:none;">Post Result</button>
                 
                 <button id="copy" disabled style="width: 100px;">Copy Text</button>
+                <div id="summarization-functions">
+                  <button id="summarize">Summarize</button>
+                  <input type="text" placeholder="Enter your API key" id="key">
+                </div>
                 <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
               </div>
 
@@ -508,7 +564,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 }, 10);
             }
             message(value) {
-                this.shadowRoot.getElementById('result').dataset.msg = value;
+                this.shadowRoot.getElementById().dataset.msg = value;
             }
             progress(value, type = 'recognize') {
                 this.shadowRoot.getElementById(type).value = value;
@@ -672,6 +728,36 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     this.configure(prefs, true);
                     this.dispatchEvent(new Event('accuracy-changed'));
                 };
+                // summarize
+                this.shadowRoot.getElementById('summarize').onclick = e => {
+                  const ocr_text = this.shadowRoot.getElementById('result').innerText;
+                  const API_KEY = this.shadowRoot.getElementById('key').value;
+                  const prompt = `Summarize the following in simple words- "${ocr_text}"`;
+                  fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                      "contents": [
+                        { "parts": [{ "text": prompt }] }
+                      ]
+                    })
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    const generatedSummary = data.candidates[0].content.parts[0].text;
+                    const summaryArea = this.shadowRoot.getElementById('summary-area');
+                    summaryArea.textContent = generatedSummary;
+                    
+                    summaryArea.style.display = 'block';
+                    this.shadowRoot.getElementById('summary-heading').style.display = 'block';
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                  });
+                };
+
                 // close
                 this.shadowRoot.getElementById('close').onclick = e => {
                     this.remove();
