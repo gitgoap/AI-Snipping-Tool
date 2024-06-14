@@ -1,6 +1,6 @@
 # Overview
 
-## ```AI Snipping Tool```
+## ``` AI Snipping Tool ```
 
 A **Chrome extension** that takes custom screenshots, **extracts text**, and allows users to **ask questions** from the extracted content. 
 
@@ -165,12 +165,13 @@ To get a local copy up and running follow these simple steps.
 
 # Future Scope / Features
 
-- **YouTube Video Screenshot:** Capture text in the current video frame only on the YouTube website. 
+- **YouTube Video Screenshot:** Capture text in the current YouTube video frame with just one click of a popup button.
+- **Download:** Users can save screenshots in their local system.
 
   
 
 
-- Answers questions just with screenshots: 
+- Answers questions just with screenshots: This feature is possible by utilizing the multimodal feature of Google Gemini.
 
   ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
 
