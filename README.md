@@ -1,19 +1,43 @@
 # Overview
 
 ## ```AI Snipping Tool```
-It is a Chrome extension that takes custom screenshots and extracts text from them. 
 
-
+A **Chrome extension** that takes custom screenshots, **extracts text**, and allows users to **ask questions** from the extracted content. 
 
 </br>
 
 ## Chrome Extension popup
 
+`Step 1:` Take the screenshot
+</br>
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/740449dd-f4e0-4b3f-b6f2-1985d3f295f0" height= 400 >
+</br></br></br>
+`Step 2:` Copy the *obtained text* or proceed further
+</br>
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/8454baeb-2044-4c58-92ba-b66a30ed0055" height= 500 >
 
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b6e40063-3211-4ee9-a5c9-98bb78dd4656" height= 600 >
+</br></br>
+`Step 3:` Fill *Google Gemini* API key and ask related *question*
+<br>
+Prerequisite: `Google Gemini API`
+
+</br>
+
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/11d6e728-8441-4586-8c73-bbd554d17ae4" height= 500 >
+
+
 
 
 </br></br>
+## Steps to get Gemini API key
+ - Sign up at `https://ai.google.dev/aistudio`
+ 
+   
+ - Click on `Get API key`
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/9ae60e18-1966-4550-9ebc-59c468dec70c" height= 300 >
+
+
+  </br></br>
 ## Built With
 
 👉 Front-End Stacks:
@@ -78,15 +102,7 @@ To get a local copy up and running follow these simple steps.
 
    </br></br></br>
    
-## Steps to get Gemini API key
- - Sign up at `https://ai.google.dev/aistudio`
- 
-   
- - Click on `Get API key`
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/9ae60e18-1966-4550-9ebc-59c468dec70c" height= 300 >
 
-
-  </br></br>
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
