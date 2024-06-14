@@ -28,9 +28,11 @@
               flex-direction: column;
               background-color: transparent;
               height: 30vh;
+              width: 40vw;
               max-height: 500px;
               max-width: 50vw;
               color-scheme: light;
+              
             }
           </style>
           <div id="body">
@@ -121,6 +123,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               accent-color: var(--accent);
               border-radius: 10px;
             }
+            #top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            }
             progress {
               width: 100%;
             }
@@ -133,18 +141,28 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             select {
               appearance: none;
               padding: 10px;
-              padding-inline-end: 20px;
-              padding-inline-start: 20px;
               border-radius: 8px;
               color: var(--fg);
               background-color: var(--bg-inputs);
               border: solid 0.8px var(--border-color);
               cursor: pointer;
-              font-size: inherit;
               font-weight: 500;
               box-sizing: border-box;
-              width: 9rem;
-              height: 3.5rem;
+              max-width: 5rem;
+              max-height: 3rem;
+              display: inline;
+            }
+            input[type=text] {
+              display:block;
+              border-radius: 6px;
+              padding: 3px;
+              border: none;
+              margin:2.5px;
+            }
+            #close {
+              width: 3.5rem;
+              height: 2rem;
+              display: inline;
             }
             select {
               background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
@@ -212,13 +230,14 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             
             .section-heading {
               color: var(--bg-result);
-              margin-bottom: 0.5rem;
               text-align: center;
               text-decoration: underline;
             }
 
-            #summary-heading {
+            #answer-heading {
+            text-align: left;
             display: none;
+            margin-bottom: 0.5rem;
             }
 
             .ocr_line {
@@ -256,21 +275,19 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               background-color:#b79e9a;
               height: 15px;
             }
-            #tools_ {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              grid-gap: var(--gap);
-              justify-content: end;
-            }
             #tools {
               display: flex;
               gap: var(--gap);
-              justify-content: space-between;
             }
             #tools .tool-buttons {
               display: flex;
-              gap: var(--gap);
-              color: ;
+              display: inline;
+              width: 400px;
+            }
+            #prompt-functions {
+              margin-left: 2px;
+              display: inline-block;
+              vertical-align: top;
             }
             #result-in-process {
               display: flex;
@@ -298,30 +315,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
   width: 100%;
   border-radius: 0.5rem;
 }
- #summarization-functions {
-              width: 9rem;
-              height: 3.5rem;
-            }
-            #summarize {
-              padding: 0.2rem;
-              margin: auto;
-              margin-left: 0.5rem;
-              margin-right: 0.5rem;
-              margin-bottom: 0.3rem;
-              max-width: 8rem;
-              max-height: 1.7rem;
-            }
-            input[type=text] {
-              border-radius: 8px;
-              margin: auto;
-              margin-left: 0.5rem;
-              margin-right: 0.5rem;
-              max-width: 8rem;
-              height: 1.3rem;
-              border-style: none;
-              padding: 0.1rem;
-              padding-left: 0.2rem;
-            }
+
 .star {
   font-size: 3vh;
   cursor: pointer;
@@ -372,15 +366,18 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               <span>Recognizing</span>
               <progress id="recognize" value="0" max="1"></progress>
             </div>
-             <div class="section-heading">OCR Text</div>   
-            <div id="result" data-msg="Please wait..." style="display:none;"></div>
+            <div id="top">
+             <span class="section-heading">OCR Text</span>  
+             <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
+            </div>
+             <div id="result" data-msg="Please wait..." style="display:none;"></div>
             <div id="result-in-process">
               <svg aria-hidden="true" class="spinner" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
                   <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
               </svg>
             </div>
-            <div class="section-heading" id="summary-heading">Summary</div>
+            <div class="section-heading" id="answer-heading">Answer</div>
             <div id="summary-area"></div>
             <div id="tools">
               <select id="language" class="language_select">
@@ -496,16 +493,18 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               </select>
 
               <div class="tool-buttons">
-                <button id="expand" style="display:none;">Expand</button>
-                <button id="post" disabled title="${this.locales.post}"  style="display:none;">Post Result</button>
-                
-                <button id="copy" disabled style="width: 100px;">Copy Text</button>
-                <div id="summarization-functions">
-                  <button id="summarize">Summarize</button>
-                  <input type="text" placeholder="Enter your API key" id="key">
-                </div>
-                <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
+              <button id="expand" style="display:none;">Expand</button>
+              <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button>
+              <button id="copy" disabled>Copy Text</button>
+  
+              <div id="prompt-functions">
+                <input type="text" placeholder="Ask a question" id="prompt">
+                <input type="text" placeholder="Enter your API key" id="key">
               </div>
+
+  <button id="answer" style="margin-left: 5%;">Get Answer</button>
+</div>
+
 
             </div>
                           
@@ -728,11 +727,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     this.configure(prefs, true);
                     this.dispatchEvent(new Event('accuracy-changed'));
                 };
-                // summarize
-                this.shadowRoot.getElementById('summarize').onclick = e => {
+                // get answer
+                this.shadowRoot.getElementById('answer').onclick = e => {
                   const ocr_text = this.shadowRoot.getElementById('result').innerText;
                   const API_KEY = this.shadowRoot.getElementById('key').value;
-                  const prompt = `Summarize the following in simple words- "${ocr_text}"`;
+                  const prompt = this.shadowRoot.getElementById('prompt').value;
+                  const question = `Prompt-"${prompt}". Context-"${ocr_text}"`;
                   fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
                     method: 'POST',
                     headers: {
@@ -740,7 +740,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     },
                     body: JSON.stringify({
                       "contents": [
-                        { "parts": [{ "text": prompt }] }
+                        { "parts": [{ "text": question }] }
                       ]
                     })
                   })
@@ -751,7 +751,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     summaryArea.textContent = generatedSummary;
                     
                     summaryArea.style.display = 'block';
-                    this.shadowRoot.getElementById('summary-heading').style.display = 'block';
+                    this.shadowRoot.getElementById('answer-heading').style.display = 'block';
                   })
                   .catch(error => {
                     console.error('Error:', error);
