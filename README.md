@@ -112,33 +112,44 @@ To get a local copy up and running follow these simple steps.
 ## Problem Statement
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
+ </br>
 </br>
+</br>
+</br>
+
 ## Some of the scenarios where this problem arises:
+</br>
+
+</br>
+
 <img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c" height= 300 >
 
-### In the **MrBeast Riddle video**, he displays a YouTube link to visit as part of the riddle, but manually typing the link is inefficient and prone to errors.
+- Manually typing the displayed link is inefficient and prone to errors.
 
 
+</br>
 </br>
 
 
 
 
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/947895f9-d606-46ba-bc63-ab3d75a8301b" height= 300 >
+
+- Copying the references given in the presentation footer is difficult 
+
+</br>
 
 
 
+</br>
 
 <img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1d84b1e5-6e1e-49b4-aefc-3482b74f29d6" height= 300 >
 
-</br>
-
-### Copying of code to the editor directly is not possible.
-
+- Copying of code to the editor directly is not possible.
 
 </br>
 
-
-
+</br>
 
 
 
