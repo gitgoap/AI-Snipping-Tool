@@ -143,7 +143,7 @@ To get a local copy up and running follow these simple steps.
 
 </br>
 
-<img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1d84b1e5-6e1e-49b4-aefc-3482b74f29d6" height= 300 >
+<img src ="https://github.com/meetalik8/AI-Snipping-Tool/assets/102135323/616f09de-5c60-4c5d-95eb-2dd0bc13cd18" height= 300 >
 
 - Copying of code to the editor directly is not possible.
 
