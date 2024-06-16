@@ -42,6 +42,9 @@ Prerequisite: `Google Gemini API`
 
 👉 Front-End Stacks:
 <p align="left">
+ <a href="https://github.com/naptha/tesseract.js">
+<img src="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/759a7856-f060-4220-8337-1b3f582fb96f" height= 55>
+     </a>
   <a href="](https://html.com">
     <img src="https://skillicons.dev/icons?i=html" />
   </a>
@@ -53,12 +56,15 @@ Prerequisite: `Google Gemini API`
     <img src="https://skillicons.dev/icons?i=js" />
   </a>
 
-  
+   
+                  
+
+
 </p>
 
-<a href="https://github.com/tesseract-ocr/tesseract">
- Tesseract OCR 
-  </a>
+
+
+
 
   </br>
   </br>
