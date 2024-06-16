@@ -91,7 +91,7 @@ To get a local copy up and running follow these simple steps.
 3. Clone the repo
 
 ```sh
- git clone https://github.com/gitgoap/AI-Snipping-Tool_IIT-D_Hackathon.git
+ git clone https://github.com/gitgoap/AI-Snipping-Tool.git
 ```
 
 3. Open Google Chrome
