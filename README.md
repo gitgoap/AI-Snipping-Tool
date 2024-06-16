@@ -74,7 +74,8 @@ Prerequisite: `Google Gemini API`
 
 > ⚠️Prerequisites
 >
-> - Recommended to have the latest version of Google Chrome 
+> - Recommended to have the latest version of Google Chrome
+> - Make sure to switch on Chrome's `developer mode`.
 
 
 To get a local copy up and running follow these simple steps.
@@ -112,7 +113,7 @@ To get a local copy up and running follow these simple steps.
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
- - Mention the issue number (**Eg: #4**) while raising a Pull Request in the description.
+ - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
    
 </br></br>
 ## Problem Statement
