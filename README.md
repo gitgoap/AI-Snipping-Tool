@@ -79,10 +79,10 @@ Prerequisite: `Google Gemini API`
 > ⚠️Prerequisites
 >
 > - Recommended to have the latest version of Google Chrome
-> - Make sure to switch on Chrome's `developer mode`.
+> - Make sure to switch on Chrome's `developer mode`
 
 
-To get a local copy up and running follow these simple steps.
+To get a local copy up and running follow these simple steps
 
 
 ### Installation
@@ -100,11 +100,11 @@ To get a local copy up and running follow these simple steps.
 
 3. Open Google Chrome
 
-4. Click **3 dots** at top right corner.
+4. Click **3 dots** at top right corner
 
 5. Go to Extensions>  Manage Extensions
 
-6. Click **Load Unpack** and select the repo where you saved initially while cloning.
+6. Click **Load Unpack** and select the repo where you saved initially while cloning
 
 
 <img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/3247e4fe-5c46-4c16-bb44-070753388f3c" height= 300 >
@@ -156,14 +156,24 @@ To get a local copy up and running follow these simple steps.
 
 <img src ="https://github.com/meetalik8/AI-Snipping-Tool/assets/102135323/6082db70-8e32-47ae-b8fa-549540914088" height= 335 >
 
-- Copying of code to the editor directly is not possible.
+- Copying code directly to the editor  is not possible
 
 </br>
 
 </br>
 
 
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/bc090e17-f058-4649-986b-d70aac4fa3ee" height= 500 >
 
+</br> 
+
+- Copying text from documents shared as images on **social media** is tricky
+- People may require this text to feed into LLMs to get a `summary`
+
+
+</br>
+
+</br>
 
  #    Working
 
