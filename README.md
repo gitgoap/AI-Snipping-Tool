@@ -44,7 +44,7 @@ Prerequisite: `Google Gemini API`
   </br></br>
 ## Built With
 
-👉 Front-End Stacks:
+👉 Tech Stacks:
 <p align="left">
  <a href="https://github.com/naptha/tesseract.js">
 <img src="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/759a7856-f060-4220-8337-1b3f582fb96f" height= 55>
