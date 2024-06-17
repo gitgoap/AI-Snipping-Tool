@@ -133,6 +133,15 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             align-items: center;
             margin-bottom: 0.5rem;
             }
+
+            .section-heading {
+                margin-right: auto; /* This will push the buttons to the right */
+            }
+
+            #top button {
+                margin-left: 0.5rem;
+            }
+
             progress {
               width: 100%;
             }
@@ -284,6 +293,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             #tools {
               display: flex;
               gap: var(--gap);
+              align-content: end;
             }
             #tools .tool-buttons {
               display: flex;
@@ -373,6 +383,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             </div>
             <div id="top">
              <span class="section-heading">OCR Text</span>  
+             <button id="save" style="display: inline;">Save</Save>
              <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
             </div>
              <div id="result" data-msg="Please wait..." style="display:none;"></div>
@@ -763,6 +774,28 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                   });
                 };
 
+                // save
+                this.shadowRoot.getElementById('save').onclick = e => {
+                  const textToSave = this.shadowRoot.getElementById('result').innerText;
+              
+                  // Create a blob for the OCR text
+                  const blob = new Blob([textToSave], { type: 'text/plain' });
+              
+                  // Create a link element
+                  const link = document.createElement('a');
+                  link.download = 'ocr-result.txt';
+              
+                  // Create object URL for the blob
+                  link.href = window.URL.createObjectURL(blob);
+              
+                  // Append the link to the Shadow DOM and click it
+                  this.shadowRoot.appendChild(link);
+                  link.click();
+              
+                  // Remove the link from the Shadow DOM
+                  this.shadowRoot.removeChild(link);
+              };
+                             
                 // close
                 this.shadowRoot.getElementById('close').onclick = e => {
                     this.remove();
