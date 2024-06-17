@@ -24,6 +24,7 @@
               /* padding: 5px; */
               z-index: 10000000000;
               /* box-shadow: 0 0 2px #ccc; */
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
               gap: 5px;
               flex-direction: column;
               background-color: transparent;
@@ -97,13 +98,15 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
           <style>
             :host {
               --fg: #031b30;
-              --bg: #0d1117;
-              --bg-inputs: #b99b3f;
+              --bg: #f0f3f4;
+              --bg-inputs: #8e44ad;
               --bg-select: #0d1117;
               --bg-result: #ffffff;
-              --bg-inputs-hover: #fb036a;
+              --bg-inputs-hover: #5d2a73;
               --accent: #3fa5b9;
-              --border-color: rgb(75, 85, 99);
+              --border-color: none;
+              --text-color: #2e4053;
+              --button-color: #ffffff;
               --width: 400px;
               --height: 300px;
               --gap: 10px;
@@ -119,6 +122,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               width: min(var(--width), calc(100vw, 2rem));
               color: var(--fg);
               background-color: var(--bg);
+              box-shadow: 5px black;
               color-scheme: light;
               accent-color: var(--accent);
               border-radius: 10px;
@@ -142,7 +146,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               appearance: none;
               padding: 10px;
               border-radius: 8px;
-              color: var(--fg);
+              color: var(--button-color);
               background-color: var(--bg-inputs);
               border: solid 0.8px var(--border-color);
               cursor: pointer;
@@ -155,13 +159,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             input[type=text] {
               display:block;
               border-radius: 6px;
-              padding: 3px;
+              padding: 5px;
               border: none;
-              margin:2.5px;
+              margin:5px;
             }
             #close {
-              width: 3.5rem;
-              height: 2rem;
               display: inline;
             }
             select {
@@ -179,9 +181,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               opacity: 0.5;
             }
 
-            select:hover, input:hover, button:hover {
+            select:hover, button:hover {
               background-color: var(--bg-inputs-hover);
             }
+            input:hover {
+              border-color: var(--bg-inputs);
+            }  
             select:focus, input:focus, button:focus {
               --tw-shadow: 0 0 #0000;
               --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -229,9 +234,10 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             }
             
             .section-heading {
-              color: var(--bg-result);
+              color: #E67E22;
               text-align: center;
-              text-decoration: underline;
+              font-weight: bold;
+      
             }
 
             #answer-heading {
@@ -281,7 +287,6 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             }
             #tools .tool-buttons {
               display: flex;
-              display: inline;
               width: 400px;
             }
             #prompt-functions {
