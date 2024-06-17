@@ -14,7 +14,9 @@ A **Chrome extension** that takes custom screenshots, **extracts text**, and all
 </br></br></br>
 `Step 2:` Copy the *obtained text* or proceed further
 </br>
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/8454baeb-2044-4c58-92ba-b66a30ed0055" height= 500 >
+
+
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/f1c582bc-2222-4d4f-8941-689da9e517cc" height= 500 >
 
 </br></br>
 `Step 3:` Fill *Google Gemini* API key and ask related *question*
@@ -23,7 +25,9 @@ Prerequisite: `Google Gemini API`
 
 </br>
 
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/11d6e728-8441-4586-8c73-bbd554d17ae4" height= 500 >
+
+
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b92a1b58-6eb0-40cd-a88c-eb66aaa97550" height= 500 >
 
 
 
