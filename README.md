@@ -42,6 +42,9 @@ Prerequisite: `Google Gemini API`
 
 👉 Front-End Stacks:
 <p align="left">
+ <a href="https://github.com/naptha/tesseract.js">
+<img src="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/759a7856-f060-4220-8337-1b3f582fb96f" height= 55>
+     </a>
   <a href="](https://html.com">
     <img src="https://skillicons.dev/icons?i=html" />
   </a>
@@ -53,12 +56,15 @@ Prerequisite: `Google Gemini API`
     <img src="https://skillicons.dev/icons?i=js" />
   </a>
 
-  
+   
+                  
+
+
 </p>
 
-<a href="https://github.com/tesseract-ocr/tesseract">
- Tesseract OCR 
-  </a>
+
+
+
 
   </br>
   </br>
@@ -68,7 +74,8 @@ Prerequisite: `Google Gemini API`
 
 > ⚠️Prerequisites
 >
-> - Recommended to have the latest version of Google Chrome 
+> - Recommended to have the latest version of Google Chrome
+> - Make sure to switch on Chrome's `developer mode`.
 
 
 To get a local copy up and running follow these simple steps.
@@ -84,7 +91,7 @@ To get a local copy up and running follow these simple steps.
 3. Clone the repo
 
 ```sh
- git clone https://github.com/gitgoap/AI-Snipping-Tool_IIT-D_Hackathon.git
+ git clone https://github.com/gitgoap/AI-Snipping-Tool.git
 ```
 
 3. Open Google Chrome
@@ -106,7 +113,7 @@ To get a local copy up and running follow these simple steps.
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
- - Mention the issue number (**Eg: #4**) while raising a Pull Request in the description.
+ - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
    
 </br></br>
 ## Problem Statement

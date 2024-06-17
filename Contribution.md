@@ -127,4 +127,4 @@ in case you are stuck:
 - [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)
 
 
-Hope you will learn something new while contributing to this project!!😇😇😇😇
+Hope you will learn something new while contributing to this project!!
