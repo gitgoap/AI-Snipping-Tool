@@ -27,7 +27,7 @@ Prerequisite: `Google Gemini API`
 
 
 
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b92a1b58-6eb0-40cd-a88c-eb66aaa97550" height= 500 >
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b92a1b58-6eb0-40cd-a88c-eb66aaa97550" height= 550 >
 
 
 
@@ -38,7 +38,7 @@ Prerequisite: `Google Gemini API`
  
    
  - Click on `Get API key`
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/9ae60e18-1966-4550-9ebc-59c468dec70c" height= 300 >
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/9ae60e18-1966-4550-9ebc-59c468dec70c" height= 250 >
 
 
   </br></br>
