@@ -15,27 +15,42 @@
 
                 const shadow = this.attachShadow({ mode: 'open' });
                 shadow.innerHTML = `
-          <style>
-            #body {
-              display: flex;
-              position: fixed;
-              top: 10px;
-              right: 30px;
-              /* padding: 5px; */
-              z-index: 10000000000;
-              /* box-shadow: 0 0 2px #ccc; */
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-              gap: 5px;
-              flex-direction: column;
-              background-color: transparent;
-              height: 30vh;
-              width: 40vw;
-              max-height: 500px;
-              max-width: 50vw;
-              color-scheme: light;
-              
-            }
-          </style>
+                <style>
+                /* Style for the container */
+                #container {
+                    position: relative; /* Ensure the container scrolls with the page */
+                    /* Add any other necessary styles for your container */
+                }
+            
+                /* Style for the sticky top bar */
+                #top {
+                    position: sticky; /* Keeps #top fixed relative to the viewport until its container scrolls out of view */
+                    top: 0;
+                    background-color: #fff; /* Adjust as needed */
+                    z-index: 100; /* Ensure it's above other content */
+                    /* Add other necessary styles */
+                }
+            
+                /* Main content area styles */
+                #body {
+                    display: flex;
+                    position: fixed;
+                    top: 10px;
+                    right: 30px;
+                    /* padding: 5px; */
+                    z-index: 10000000000;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    gap: 5px;
+                    flex-direction: column;
+                    background-color: transparent;
+                    height: 30vh;
+                    width: 40vw;
+                    max-height: 500px;
+                    max-width: 50vw;
+                    color-scheme: light;
+                }
+            </style>
+            
           <div id="body">
             <slot></slot>
           </div>
@@ -95,271 +110,188 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
                 const shadow = this.attachShadow({ mode: 'open' });
                 shadow.innerHTML = `
-          <style>
-            :host {
-              --fg: #031b30;
-              --bg: #f0f3f4;
-              --bg-inputs: #8e44ad;
-              --bg-select: #0d1117;
-              --bg-result: #ffffff;
-              --bg-inputs-hover: #5d2a73;
-              --accent: #3fa5b9;
-              --border-color: none;
-              --text-color: #2e4053;
-              --button-color: #ffffff;
-              --width: 400px;
-              --height: 300px;
-              --gap: 10px;
-            }
-            :host([data-mode='expand']) {
-              --height: 70vh;
-            }
-            #body {
-              font-size: 15px;
-              font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-              padding: 20px;
-              flex-direction: column;
-              width: min(var(--width), calc(100vw, 2rem));
-              color: var(--fg);
-              background-color: var(--bg);
-              box-shadow: 5px black;
-              color-scheme: light;
-              accent-color: var(--accent);
-              border-radius: 10px;
-            }
-            #top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            }
-
-            .section-heading {
-                margin-right: auto; /* This will push the buttons to the right */
-            }
-
-            #top button {
-                margin-left: 0.5rem;
-            }
-
-            progress {
-              width: 100%;
-            }
-            img {
-              display: none;
-            }
-            button,
-            input[type=submit],
-            input[type=button],
-            select {
-              appearance: none;
-              padding: 10px;
-              border-radius: 8px;
-              color: var(--button-color);
-              background-color: var(--bg-inputs);
-              border: solid 0.8px var(--border-color);
-              cursor: pointer;
-              font-weight: 500;
-              box-sizing: border-box;
-              max-width: 5rem;
-              max-height: 3rem;
-              display: inline;
-            }
-            input[type=text] {
-              display:block;
-              border-radius: 6px;
-              padding: 5px;
-              border: none;
-              margin:5px;
-            }
-            #close {
-              display: inline;
-            }
-            select {
-              background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
-              background-repeat: no-repeat;
-              background-position-x: calc(100% - 8px);
-              background-position-y: 50%;
-              background-size: 21px 21px;
-            }
-            select option, select optgroup {
-              background-color: var(--bg-select);
-              color: grey;
-            }
-            input[type=button]:disabled {
-              opacity: 0.5;
-            }
-
-            select:hover, button:hover {
-              background-color: var(--bg-inputs-hover);
-            }
-            input:hover {
-              border-color: var(--bg-inputs);
-            }  
-            select:focus, input:focus, button:focus {
-              --tw-shadow: 0 0 #0000;
-              --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
-              --tw-ring-offset-width: 0px;
-              --tw-ring-offset-color: #fff;
-              --tw-ring-color: var(--bg-inputs);
-              --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-              --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-              border-color: var(--accent);
-              box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);
-              outline: 2px solid transparent;
-              outline-offset: 2px;
-            }
-            #result, #result-in-process {
-              min-height: 40px;
-              max-height: 10vh;
-              background-color: var(--bg-result);
-              margin: 0 0 20px 0;
-              overflow-y: scroll;
-              overflow-x: auto;
-              flex: 0.5;
-              padding: var(--gap);
-              border-radius: 8px;
-            }
-            #result:empty::before {
-              content: attr(data-msg);
-            }
-            #result .ocr_par:first-child {
-              margin-top: 0;
-            }
-            #result .ocr_par:last-child {
-              margin-bottom: 0;
-            }
-
-            #summary-area {
-              max-height: 10vh;
-              overflow-y: scroll;
-              overflow-x: auto;
-              flex: 0.5;
-              display: none;
-              padding: var(--gap);
-              border-radius: 8px;
-              margin: 0 0 20px 0;
-              background-color: var(--bg-result);
-            }
+                <style>
+                :host {
+                    --fg: #031b30;
+                    --bg: #f0f3f4;
+                    --bg-inputs: #8e44ad;
+                    --bg-select: #0d1117;
+                    --bg-result: #ffffff;
+                    --bg-inputs-hover: #5d2a73;
+                    --accent: #3fa5b9;
+                    --border-color: none;
+                    --text-color: #2e4053;
+                    --button-color: #ffffff;
+                    --width: 400px;
+                    --height: 300px;
+                    --gap: 10px;
+                }
+                
+                :host([data-mode='expand']) {
+                    --height: 70vh;
+                }
+                
+                #body {
+                    font-size: 15px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    padding: 20px;
+                    flex-direction: column;
+                    width: min(var(--width), calc(100vw - 2rem));
+                    color: var(--fg);
+                    background-color: var(--bg);
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                    color-scheme: light;
+                    accent-color: var(--accent);
+                    border-radius: 10px;
+                }
+                
+                #top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 0.5rem;
+                }
+                
+                .section-heading {
+                    margin-right: auto;
+                    color: #E67E22;
+                    text-align: center;
+                    font-weight: bold;
+                }
+                
+                #top button {
+                    margin-left: 0.5rem;
+                }
+                
+                progress {
+                    width: 100%;
+                }
+                
+                button,
+                input[type=submit],
+                input[type=button],
+                select {
+                    appearance: none;
+                    padding: 10px;
+                    border-radius: 8px;
+                    color: var(--button-color);
+                    background-color: var(--bg-inputs);
+                    border: solid 0.8px var(--border-color);
+                    cursor: pointer;
+                    font-weight: 500;
+                    box-sizing: border-box;
+                    max-width: 5rem;
+                    max-height: 3rem;
+                }
+                
+                input[type=text] {
+                    border-radius: 6px;
+                    padding: 5px;
+                    border: none;
+                    margin: 5px;
+                }
+                
+                #close {
+                    display: inline;
+                }
+                
+                select {
+                    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position-x: calc(100% - 8px);
+                    background-position-y: 50%;
+                    background-size: 21px 21px;
+                }
+                
+                select option,
+                select optgroup {
+                    background-color: var(--bg-select);
+                    color: grey;
+                }
+                
+                input[type=button]:disabled {
+                    opacity: 0.5;
+                }
+                
+                select:hover,
+                button:hover {
+                    background-color: var(--bg-inputs-hover);
+                }
+                
+                input:hover {
+                    border-color: var(--bg-inputs);
+                }
+                
+                select:focus,
+                input:focus,
+                button:focus {
+                    border-color: var(--accent);
+                    box-shadow: 0 0 0 2px var(--accent);
+                    outline: none;
+                }
+                
+                #result,
+                #summary-area {
+                    min-height: 40px;
+                    max-height: 10vh;
+                    background-color: var(--bg-result);
+                    margin: 0 0 20px 0;
+                    overflow-y: scroll;
+                    overflow-x: auto;
+                    flex: 0.5;
+                    padding: var(--gap);
+                    border-radius: 8px;
+                }
+                
+                #result:empty::before {
+                    content: attr(data-msg);
+                }
+                
+                #result .ocr_par:first-child {
+                    margin-top: 0;
+                }
+                
+                #result .ocr_par:last-child {
+                    margin-bottom: 0;
+                }
+                
+                #summary-area {
+                    display: none;
+                }
+                
+                .ocr_line {
+                    display: block;
+                }
+                
+                .grid {
+                    display: grid;
+                    grid-template-columns: min-content 1fr;
+                    white-space: nowrap;
+                    align-items: center;
+                    justify-items: left;
+                    grid-gap: var(--gap);
+                }
+                
+                .options {
+                    display: grid;
+                    grid-template-columns: 1fr 1px 1fr;
+                    grid-gap: var(--gap);
+                    background: rgba(0, 0, 0, 0.05);
+                    margin-bottom: var(--gap);
+                    margin-left: -3px;
+                    align-items: center;
+                }
+                
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
             
-            .section-heading {
-              color: #E67E22;
-              text-align: center;
-              font-weight: bold;
-      
-            }
-
-            #answer-heading {
-            text-align: left;
-            display: none;
-            margin-bottom: 0.5rem;
-            }
-
-            .ocr_line {
-              display: block;
-            }
-            .grid {
-              display: grid;
-              grid-template-columns: min-content 1fr;
-              white-space: nowrap;
-              align-items: center;
-              justify-items: left;
-              grid-gap: var(--gap);
-            }
-            .options {
-              display: grid;
-              grid-template-columns: 1fr 1px 1fr;
-              grid-gap: var(--gap);
-              background: rgba(0, 0, 0, 0.05);
-              margin-bottom: var(--gap);
-              margin-left: -3px;
-              align-items: center;
-            }
-            /*
-            #accuracy,
-            #language {
-              border: none;
-              text-overflow: ellipsis;
-              background-color: transparent;
-              outline: none;
-              padding: calc(var(--gap) / 2) 0;
-              color: var(--fg);
-            }
-            */
-            .sep {
-              background-color:#b79e9a;
-              height: 15px;
-            }
-            #tools {
-              display: flex;
-              gap: var(--gap);
-              align-content: end;
-            }
-            #tools .tool-buttons {
-              display: flex;
-              width: 400px;
-            }
-            #prompt-functions {
-              margin-left: 2px;
-              display: inline-block;
-              vertical-align: top;
-            }
-            #result-in-process {
-              display: flex;
-              justify-content: center;
-              flex-direction: column;
-              align-items: center;
-            }
-            .spinner {
-              color: rgb(75, 85, 99);
-              fill: #d61f69;
-              animation: spin 1s linear infinite;
-              width: 50px;
-              height: 50px;
-              display: inline-block;
-            }
-             .language_select option:hover {
-                background-color: lime !important;
-            }
-            .card {
-  max-width: 33rem;
-  background: #fff;
-  margin: 0 1rem;
-  padding: 1rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.star {
-  font-size: 3vh;
-  cursor: pointer;
-    color: #222c3b;
-}
-  
-.chose_star {
-  color: rgb(255, 255, 0);
-}
-.rate_title_block {
-    font-size: 2.5vh;
-    vertical-align: text-bottom;
-}
-.rate_title {
-    font-size: 1.5vh;
-    color: #dcdce6;
-}
-.rate_block {
-    text-align: center;
-}
-            @keyframes spin {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-          </style>
 
           <div id="body">
             <div style="display: flex; justify-content: center;">
@@ -381,10 +313,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               <span>Recognizing</span>
               <progress id="recognize" value="0" max="1"></progress>
             </div>
+            <div id="container">
             <div id="top">
-             <span class="section-heading">OCR Text</span>  
-             <button id="save" style="display: inline;">Save</Save>
-             <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
+            <span class="section-heading">OCR Text</span>  
+            <button id="save" style="display: inline;">Save</button>
+            <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
+            </div>
             </div>
              <div id="result" data-msg="Please wait..." style="display:none;"></div>
             <div id="result-in-process">
@@ -510,9 +444,9 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
               <div class="tool-buttons">
               <button id="expand" style="display:none;">Expand</button>
-              <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button>
+              <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button><br>
               <button id="copy" disabled>Copy Text</button>
-  
+  <br>
               <div id="prompt-functions">
                 <input type="text" placeholder="Ask a question" id="prompt">
                 <input type="text" placeholder="Enter your API key" id="key">
