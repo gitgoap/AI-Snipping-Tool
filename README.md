@@ -118,8 +118,15 @@ To get a local copy up and running follow these simple steps
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
  - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
+
+</br></br></br>
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=gitgoap/AI-Snipping-Tool&type=Date)](https://star-history.com/#gitgoap/AI-Snipping-Tool&Date)
+
    
-</br></br>
+</br></br></br>
 ## Problem Statement
 
  We often need to type out text from videos, images, or thumbnails on websites. This can be a tedious and error-prone process, especially if the text is long or has tricky stuff like website links, technical words, code examples, or math equations. This issue comes up on YouTube, where useful info is shown in videos or thumbnail images.
