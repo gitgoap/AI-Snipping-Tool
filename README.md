@@ -49,6 +49,10 @@ Prerequisite: `Google Gemini API`
  <a href="https://github.com/naptha/tesseract.js">
 <img src="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/759a7856-f060-4220-8337-1b3f582fb96f" height= 55>
      </a>
+
+ <a href="https://ai.google.dev/">
+<img src="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/a0b2ffdc-fb8c-4515-867b-8f8d4c27988f" height= 55>
+     </a>
   <a href="](https://html.com">
     <img src="https://skillicons.dev/icons?i=html" />
   </a>
