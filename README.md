@@ -119,11 +119,19 @@ To get a local copy up and running follow these simple steps
  - Make sure to raise an issue before raising a Pull Request.
  - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
 
-</br></br></br>
+</br></br>
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=gitgoap/AI-Snipping-Tool&type=Date)](https://star-history.com/#gitgoap/AI-Snipping-Tool&Date)
+
+
+<a href="https://star-history.com/#gitgoap/AI-Snipping-Tool&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gitgoap/AI-Snipping-Tool&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gitgoap/AI-Snipping-Tool&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=gitgoap/AI-Snipping-Tool&type=Date" />
+ </picture>
+</a>
 
    
 </br></br></br>
@@ -142,7 +150,7 @@ To get a local copy up and running follow these simple steps
 
 <img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c" height= 300 >
 
-- Manually typing the displayed link is inefficient and prone to errors.
+- Manually typing the displayed link is inefficient and prone to errors if it can't be copied.
 
 
 </br>
