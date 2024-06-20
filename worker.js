@@ -6,6 +6,31 @@
 //   title: chrome.runtime.getManifest().name,
 //   message: e.message || e
 // });
+function sendApiRequest(text) {
+    chrome.storage.sync.get('apiKey', function (data) {
+        const apiKey = data.apiKey;
+        if (apiKey) {
+            // Use the API key in the request
+            fetch('https://api.google.com/gemini', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } else {
+            alert('Please set your API key in the options page.');
+        }
+    });
+}
 
 chrome.action.onClicked.addListener(async tab => {
   try {
