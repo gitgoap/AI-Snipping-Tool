@@ -27,7 +27,7 @@ function sendApiRequest(text) {
                 console.error('Error:', error);
             });
         } else {
-            alert('Please set your API key in the options page.');
+            alert('Please set your API key in the contents page.');
         }
     });
 }
