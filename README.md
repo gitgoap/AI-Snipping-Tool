@@ -154,6 +154,11 @@ To get a local copy up and running follow these simple steps
 
 <img src ="https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/325fe373-5215-4602-b582-1e2d3e91d96c" height= 300 >
 
+</br></br>
+
+<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/c8d8996b-3bc4-4d7b-ae79-878f17637d34" height= 300 >
+
+
 - Manually typing the displayed link is inefficient and prone to errors if it can't be copied.
 
 
