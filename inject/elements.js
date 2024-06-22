@@ -152,7 +152,6 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             input[type=submit],
             input[type=button],
             select {
-              font-size: 12px;
               appearance: none;
               padding: 10px;
               border-radius: 8px;
@@ -162,12 +161,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               cursor: pointer;
               font-weight: 500;
               box-sizing: border-box;
-              max-width: 5.2rem;
-              height: 3rem;
+              max-width: 5rem;
+              max-height: 3rem;
               display: inline;
             }
             input[type=text] {
-              font-size: 12px;
               display:block;
               border-radius: 6px;
               padding: 5px;
@@ -385,8 +383,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             </div>
             <div id="top">
              <span class="section-heading">OCR Text</span>  
-             <button id="save-screenshot" style="display: inline;">Save Screenshot</button>
-             <button id="save-text" style="display: inline;">Save Text</button>
+             <button id="save" style="display: inline;">Save</Save>
              <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
             </div>
              <div id="result" data-msg="Please wait..." style="display:none;"></div>
@@ -777,8 +774,8 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                   });
                 };
 
-                // Download OCR text
-                this.shadowRoot.getElementById('save-text').onclick = e => {
+                // save
+                this.shadowRoot.getElementById('save').onclick = e => {
                   const textToSave = this.shadowRoot.getElementById('result').innerText;
               
                   // Create a blob for the OCR text
@@ -798,29 +795,6 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                   // Remove the link from the Shadow DOM
                   this.shadowRoot.removeChild(link);
               };
-
-                // Download screenshot
-                  this.shadowRoot.getElementById('save-screenshot').onclick = e => {
-                    let url = localStorage.getItem('ocr-screenshot');
-                    if (url) {
-
-                      // Create a link element
-                      let a = document.createElement('a');
-                      a.href = url;
-                      a.download = 'screenshot.png';
-
-                      // Append the link to the Shadow DOM and click it
-                      this.shadowRoot.appendChild(a);
-                      a.click();
-                      
-                      // Remove the link from the Shadow DOM
-                      document.body.removeChild(a);
-                    }
-
-                    else {
-                      console.error('No screenshot URL found in local storage');
-                    }
-                  };
                              
                 // close
                 this.shadowRoot.getElementById('close').onclick = e => {
