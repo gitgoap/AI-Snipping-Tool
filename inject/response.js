@@ -17,6 +17,7 @@
   } : (name, ...args) => em[name](...args);
 
   const ocr = (lang, src) => {
+    localStorage.setItem('screenshot-url', src);
     const report = report => {
       command('message', report.status);
 
