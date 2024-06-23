@@ -36,7 +36,7 @@ window.addEventListener('message', e => {
       if (request.lang.endsWith('_vert')) {
         params['tessedit_pageseg_mode'] = Tesseract.PSM.SINGLE_BLOCK_VERT_TEXT;
       }
-      // params['preserve_interword_spaces'] = '1';
+      // params['preserve_interword_spaces'] = '1'; .
       await worker.setParameters(params);
 
       const result = (await worker.recognize(request.src)).data;
