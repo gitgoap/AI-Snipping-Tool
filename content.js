@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const saveButton = document.getElementById('saveApiKey');
+    const saveButton = document.getElementById('saveButton');
     const apiKeyInput = document.getElementById('apiKey');
 
     // Load the saved API key
