@@ -80,7 +80,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
     }
     chrome.tabs.captureVisibleTab(sender.tab.windowId, {
       format: 'png'
-    }, async href => {
+    }, async (href) => {
       try {
         const target = {
           tabId: sender.tab.id
@@ -125,7 +125,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
           'lang': 'eng',
           'frequently-used': ['eng', 'fra', 'deu', 'rus', 'ara'],
           'accuracy': '4.0.0'
-        }, prefs => chrome.scripting.executeScript({
+        }, (prefs) => {chrome.scripting.executeScript({
           target,
           func: (prefs, href, box) => {
             const em = document.querySelector('ocr-result:last-of-type');
@@ -141,11 +141,11 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
             width: width * devicePixelRatio,
             height: height * devicePixelRatio,
             left: left * devicePixelRatio,
-            top: top * devicePixelRatio
-          }]
-        }));
-      }
-      catch (e) {
+            top: top * devicePixelRatio,
+          }],
+        });
+      });
+      }catch (e) {
         console.error(e);
         
       }
