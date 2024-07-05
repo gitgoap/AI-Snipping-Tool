@@ -82,6 +82,9 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
       format: 'png'
     }, async (href) => {
       try {
+        if (href.startsWith('chrome://')) {
+            throw new Error('Cannot access a chrome:// URL');
+        }
         const target = {
           tabId: sender.tab.id
         };
