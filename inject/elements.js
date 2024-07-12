@@ -17,14 +17,13 @@
                 shadow.innerHTML = `
           <style>
             #body {
+            font-family: Georgia, sans-serif;
               display: flex;
               position: fixed;
               top: 10px;
-              right: 30px;
+              right: 10px;
               /* padding: 5px; */
               z-index: 10000000000;
-              /* box-shadow: 0 0 2px #ccc; */
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
               gap: 5px;
               flex-direction: column;
               background-color: transparent;
@@ -96,468 +95,410 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 const shadow = this.attachShadow({ mode: 'open' });
                 shadow.innerHTML = `
           <style>
-            :host {
-              --fg: #031b30;
-              --bg: #f0f3f4;
-              --bg-inputs: #8e44ad;
-              --bg-select: #0d1117;
-              --bg-result: #ffffff;
-              --bg-inputs-hover: #5d2a73;
-              --accent: #3fa5b9;
-              --border-color: none;
-              --text-color: #2e4053;
-              --button-color: #ffffff;
-              --width: 400px;
-              --height: 300px;
-              --gap: 10px;
-            }
-            :host([data-mode='expand']) {
-              --height: 70vh;
-            }
+    body {
+        background-color: #f5f5f7;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
 
-            :host([dark-mode]) {
-              --background-color: #bfbcb2;
-              --text-color: #FFF;
-            }
-            :host([dark-mode]) #result,
-            :host([dark-mode]) #result-in-process {
-              background-color: #202938;
-              color: #E67E22;
-            },
-            :host([dark-mode]) #summary-area {
-              background-color: #202938;
-              color: #E67E22;
-              border: 1px solid var(--text-color);
-            }
-            :host([dark-mode]) #prompt-functions input[type="text"] {
-              background-color: #202938;
-              color: #E67E22;
-            }
-            :host([dark-mode]) #body {
-              background-color: #06041a;
-              color: #e0e0e0;
-            }
+    #body {
+        max-height: 500px;
+        width: 350px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
 
-            #body {
-              font-size: 15px;
-              font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-              padding: 20px;
-              flex-direction: column;
-              width: min(var(--width), calc(100vw, 2rem));
-              color: var(--fg);
-              background-color: var(--bg);
-              box-shadow: 5px black;
-              color-scheme: light;
-              accent-color: var(--accent);
-              border-radius: 10px;
-            }
-            #top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            }
+    #top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: solid;
+    }
 
-            .section-heading {
-                margin-right: auto; /* This will push the buttons to the right */
-            }
+    .logo-title {
+        display: flex;
+        align-items: center;
+    }
 
-            #top button {
-                margin-left: 0.5rem;
-            }
+    .logo {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
 
-            progress {
-              width: 100%;
-            }
-            img {
-              display: none;
-            }
-            button,
-            input[type=submit],
-            input[type=button],
-            select {
-              font-size: 12px;
-              appearance: none;
-              padding: 10px;
-              border-radius: 8px;
-              color: var(--button-color);
-              background-color: var(--bg-inputs);
-              border: solid 0.8px var(--border-color);
-              cursor: pointer;
-              font-weight: 500;
-              box-sizing: border-box;
-              max-width: 5.2rem;
-              height: 3rem;
-              display: inline;
-            }
-            input[type=text] {
-              display:block;
-              border-radius: 6px;
-              padding: 5px;
-              border: none;
-              margin:5px;
-            }
-            #close {
-              display: inline;
-            }
-            select {
-              background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
-              background-repeat: no-repeat;
-              background-position-x: calc(100% - 8px);
-              background-position-y: 50%;
-              background-size: 21px 21px;
-            }
-            select option, select optgroup {
-              background-color: var(--bg-select);
-              color: grey;
-            }
-            input[type=button]:disabled {
-              opacity: 0.5;
-            }
+    .right-icons {
+        display: flex;
+        align-items: center;
+    }
 
-            select:hover, button:hover {
-              background-color: var(--bg-inputs-hover);
-            }
-            input:hover {
-              border-color: var(--bg-inputs);
-            }  
-            select:focus, input:focus, button:focus {
-              --tw-shadow: 0 0 #0000;
-              --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
-              --tw-ring-offset-width: 0px;
-              --tw-ring-offset-color: #fff;
-              --tw-ring-color: var(--bg-inputs);
-              --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-              --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-              border-color: var(--accent);
-              box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);
-              outline: 2px solid transparent;
-              outline-offset: 2px;
-            }
-            #result, #result-in-process {
-              min-height: 40px;
-              max-height: 10vh;
-              background-color: var(--bg-result);
-              margin: 0 0 20px 0;
-              overflow-y: scroll;
-              overflow-x: auto;
-              flex: 0.5;
-              padding: var(--gap);
-              border-radius: 8px;
-            }
-            #result:empty::before {
-              content: attr(data-msg);
-            }
-            #result .ocr_par:first-child {
-              margin-top: 0;
-            }
-            #result .ocr_par:last-child {
-              margin-bottom: 0;
-            }
+    .github-link {
+        margin-right: 12px;
+    }
 
-            #summary-area {
-              max-height: 10vh;
-              overflow-y: scroll;
-              overflow-x: auto;
-              flex: 0.5;
-              display: none;
-              padding: var(--gap);
-              border-radius: 8px;
-              margin: 0 0 20px 0;
-              background-color: var(--bg-result);
-            }
-            
-            .section-heading {
-              color: #E67E22;
-              text-align: center;
-              font-weight: bold;
-      
-            }
+    .github-logo {
+        fill: currentColor;
+    }
 
-            #answer-heading {
-            text-align: left;
-            display: none;
-            margin-bottom: 0.5rem;
-            }
+    #toggle-dark-mode {
+        margin-left: 12px;
+    }
 
-            .ocr_line {
-              display: block;
-            }
-            .grid {
-              display: grid;
-              grid-template-columns: min-content 1fr;
-              white-space: nowrap;
-              align-items: center;
-              justify-items: left;
-              grid-gap: var(--gap);
-            }
-            .options {
-              display: grid;
-              grid-template-columns: 1fr 1px 1fr;
-              grid-gap: var(--gap);
-              background: rgba(0, 0, 0, 0.05);
-              margin-bottom: var(--gap);
-              margin-left: -3px;
-              align-items: center;
-            }
-            /*
-            #accuracy,
-            #language {
-              border: none;
-              text-overflow: ellipsis;
-              background-color: transparent;
-              outline: none;
-              padding: calc(var(--gap) / 2) 0;
-              color: var(--fg);
-            }
-            */
-            .sep {
-              background-color:#b79e9a;
-              height: 15px;
-            }
-            #tools {
-              display: flex;
-              gap: var(--gap);
-              align-content: end;
-            }
-            #tools .tool-buttons {
-              display: flex;
-              width: 400px;
-            }
-            #prompt-functions {
-              margin-left: 2px;
-              display: inline-block;
-              vertical-align: top;
-            }
-            #result-in-process {
-              display: flex;
-              justify-content: center;
-              flex-direction: column;
-              align-items: center;
-            }
-            .spinner {
-              color: rgb(75, 85, 99);
-              fill: #d61f69;
-              animation: spin 1s linear infinite;
-              width: 50px;
-              height: 50px;
-              display: inline-block;
-            }
-             .language_select option:hover {
-                background-color: lime !important;
-            }
-            .card {
-  max-width: 33rem;
-  background: #fff;
-  margin: 0 1rem;
-  padding: 1rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border-radius: 0.5rem;
-}
+    .dark-toggle {
+        cursor: pointer;
+    }
 
-.star {
-  font-size: 3vh;
-  cursor: pointer;
-    color: #222c3b;
-}
-  
-.chose_star {
-  color: rgb(255, 255, 0);
-}
-.rate_title_block {
-    font-size: 2.5vh;
-    vertical-align: text-bottom;
-}
-.rate_title {
-    font-size: 1.5vh;
-    color: #dcdce6;
-}
-.rate_block {
-    text-align: center;
-}
-            @keyframes spin {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-          </style>
+    #close,
+    #copy {
+        border: solid;
+        background: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: #007AFF;
+        width: 15%;
+        padding: 5px;
+    }
 
-          <div id="body">
-            <div style="display: flex; justify-content: center;">
-              <img id="img">
-            </div>
-            <div class="options" style="display:none;">
-              <span class="sep"></span>
-              <select id="accuracy_" style="display:none;">
-                <option value='3.02'>Low Accuracy</option>
-                <option value='4.0.0_fast'>Moderate Accuracy</option>
-                <option value='4.0.0'>Better Accuracy</option>
-                <option value='4.0.0_best'>Best Accuracy</option>
-              </select>
-              <input id="accuracy" type="hidden" value="">
-            </div>
-            <div class="grid" style="display:none;">
-              <span>Downloading</span>
-              <progress id="lang" value="0" max="1"></progress>
-              <span>Recognizing</span>
-              <progress id="recognize" value="0" max="1"></progress>
-            </div>
-            <div id="top">
-            <span class="section-heading">OCR Text</span>
-            <svg id="toggle-dark-mode"  stroke="currentColor" fill="#9044ac" stroke-width="0" viewBox="0 0 16 16" class="dark-toggle cursor-pointer" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-              <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    label {
+        display: block;
+        font-weight: 500;
+        margin: 10px 0 5px;
+        color: #333;
+    }
+
+    #result,
+    #result-in-process,
+    #prompt,
+    #key,
+    #summary-area {
+        background-color: #fff;
+        border: 1px solid #d1d1d1;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 14px;
+        width: 85%
+    }
+
+    #result,
+    #result-in-process {
+        overflow-y: scroll;
+        height: 40px;
+    }
+
+    #tools {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tool-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .tool-row>* {
+        flex: 1;
+        min-width: 0;
+    }
+
+    select.language_select,
+    button {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 12px;
+        border: 1px solid #d1d1d1;
+        background-color: #f5f5f7;
+        font-size: 14px;
+        color: #333;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    button {
+        background-color: #007AFF;
+        color: #fff;
+        border: none;
+        font-weight: 500;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #summary-area {
+        height: 40px;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 12px;
+        background-color: rgba(245, 245, 247, 0.6);
+        backdrop-filter: blur(5px);
+        overflow-y: scroll;
+        border-style: solid;
+    }
+
+    #answer-heading {
+        margin-top: 0px;
+    }
+
+    :host {
+        --fg: #031b30;
+        --bg: #f0f3f4;
+        --bg-inputs: #8e44ad;
+        --bg-select: #0d1117;
+        --bg-result: #ffffff;
+        --bg-inputs-hover: #5d2a73;
+        --accent: #3fa5b9;
+        --border-color: none;
+        --text-color: #2e4053;
+        --button-color: #ffffff;
+        --width: 400px;
+        --height: 300px;
+        --gap: 10px;
+    }
+
+    :host([data-mode='expand']) {
+        --height: 70vh;
+    }
+
+    :host([dark-mode]) {
+        --background-color: #06041a;
+        --text-color: #e0e0e0;
+    }
+
+    :host([dark-mode]) #body {
+        background-color: #06041a;
+        color: #e0e0e0;
+    }
+
+    :host([dark-mode]) #result,
+    :host([dark-mode]) #result-in-process,
+    :host([dark-mode]) #prompt,
+    :host([dark-mode]) #key,
+    :host([dark-mode]) #summary-area {
+        background-color: #202938;
+        color: #E67E22;
+        border-color: #4a4a4a;
+    }
+
+    :host([dark-mode]) label {
+        color: #FDDE5A;
+    }
+
+    :host([dark-mode]) select.language_select,
+    :host([dark-mode]) button {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        border-color: #4a4a4a;
+    }
+
+    :host([dark-mode]) button {
+        background-color: #007AFF;
+    }
+
+    :host([dark-mode]) button:hover {
+        background-color: #0056b3;
+    }
+
+    :host([dark-mode]) #toggle-dark-mode {
+        fill: #FDDE5A;
+    }
+
+    :host([dark-mode]) .section-heading a {
+        color: #FDDE5A;
+    }
+</style>
+
+<div id="body">
+    <div style="display: flex; justify-content: center;">
+        <img id="img">
+    </div>
+    <div class="options" style="display:none;">
+        <span class="sep"></span>
+        <select id="accuracy_" style="display:none;">
+            <option value='3.02'>Low Accuracy</option>
+            <option value='4.0.0_fast'>Moderate Accuracy</option>
+            <option value='4.0.0'>Better Accuracy</option>
+            <option value='4.0.0_best'>Best Accuracy</option>
+        </select>
+        <input id="accuracy" type="hidden" value="">
+    </div>
+    <div class="grid" style="display:none;">
+        <span>Downloading</span>
+        <progress id="lang" value="0" max="1"></progress>
+        <span>Recognizing</span>
+        <progress id="recognize" value="0" max="1"></progress>
+    </div>
+    <div id="top">
+        <div class="logo-title">
+            <img src="https://raw.githubusercontent.com/gitgoap/AI-Snipping-Tool/main/icons/logo.png" alt="AI Snipping Tool Logo" class="logo">
+            <span class="section-heading">
+                <a href="https://github.com/gitgoap/AI-Snipping-Tool">AI Snipping Tool</a>
+            </span>
+        </div>
+        <div class="right-icons">
+            <svg id="toggle-dark-mode" stroke="currentColor" fill="#9044ac" stroke-width="0" viewBox="0 0 16 16" class="dark-toggle cursor-pointer" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
             </svg>
-
-             <button id="save-screenshot" style="display: inline;">Save Screenshot</button>
-             <button id="save-text" style="display: inline;">Save Text</button>
-             <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button> 
-            </div>
-             <div id="result" data-msg="Please wait..." style="display:none;"></div>
-            <div id="result-in-process">
-              <svg aria-hidden="true" class="spinner" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-              </svg>
-            </div>
-            <div class="section-heading" id="answer-heading">Answer</div>
-            <div id="summary-area"></div>
-            <div id="tools">
-              <select id="language" class="language_select">
+        </div>
+        <button id="copy" disabled>Copy</button>
+        <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
+    </div>
+    <label for="result">OCR Text</label>
+    <div id="result" data-msg="Please wait..." style="display:none;"></div>
+    <div id="result-in-process">
+        <svg aria-hidden="true" class="spinner" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+        </svg>
+    </div>
+    <div id="prompt-functions">
+        <label for="prompt">Prompt</label>
+        <input type="text" placeholder="Ask a question" id="prompt">
+        </br>
+        <label for="key">API Key</label>
+        <input type="text" placeholder="Enter your Gemini API key" id="key">
+    </div>
+    <div id="tools">
+        <div class="tool-row">
+            <select id="language" class="language_select">
                 <optgroup>
-                  <option value="detect">Auto Detect (beta)</option>
+                    <option value="detect">Auto Detect (beta)</option>
                 </optgroup>
                 <optgroup id="frequently-used"></optgroup>
                 <optgroup>
-                  <option value="afr">Afrikaans</option>
-                  <option value="amh">Amharic</option>
-                  <option value="ara">Arabic</option>
-                  <option value="asm">Assamese</option>
-                  <option value="aze">Azerbaijani</option>
-                  <option value="aze_cyrl">Azerbaijani - Cyrillic</option>
-                  <option value="bel">Belarusian</option>
-                  <option value="ben">Bengali</option>
-                  <option value="bod">Tibetan</option>
-                  <option value="bos">Bosnian</option>
-                  <option value="bul">Bulgarian</option>
-                  <option value="cat">Catalan; Valencian</option>
-                  <option value="ceb">Cebuano</option>
-                  <option value="ces">Czech</option>
-                  <option value="chi_sim">Chinese - Simplified</option>
-                  <option value="chi_tra">Chinese - Traditional</option>
-                  <option value="chr">Cherokee</option>
-                  <option value="cym">Welsh</option>
-                  <option value="dan">Danish</option>
-                  <option value="deu">German</option>
-                  <option value="dzo">Dzongkha</option>
-                  <option value="ell">Greek, Modern (1453-)</option>
-                  <option value="enm">English, Middle (1100-1500)</option>
-                  <option value="eng">English</option>
-                  <option value="epo">Esperanto</option>
-                  <option value="est">Estonian</option>
-                  <option value="eus">Basque</option>
-                  <option value="fas">Persian</option>
-                  <option value="fra">French</option>
-                  <option value="fin">Finnish</option>
-                  <option value="frk">German Fraktur</option>
-                  <option value="frm">French, Middle (ca. 1400-1600)</option>
-                  <option value="gle">Irish</option>
-                  <option value="glg">Galician</option>
-                  <option value="grc">Greek, Ancient (-1453)</option>
-                  <option value="guj">Gujarati</option>
-                  <option value="hat">Haitian; Haitian Creole</option>
-                  <option value="heb">Hebrew</option>
-                  <option value="hin">Hindi</option>
-                  <option value="hrv">Croatian</option>
-                  <option value="hun">Hungarian</option>
-                  <option value="iku">Inuktitut</option>
-                  <option value="ind">Indonesian</option>
-                  <option value="isl">Icelandic</option>
-                  <option value="ita">Italian</option>
-                  <option value="ita_old">Italian - Old</option>
-                  <option value="jav">Javanese</option>
-                  <option value="jpn">Japanese</option>
-                  <option value="jpn_vert">Japanese - Vertical</option>
-                  <option value="kan">Kannada</option>
-                  <option value="kat">Georgian</option>
-                  <option value="kat_old">Georgian - Old</option>
-                  <option value="kaz">Kazakh</option>
-                  <option value="khm">Central Khmer</option>
-                  <option value="kir">Kirghiz; Kyrgyz</option>
-                  <option value="kor">Korean</option>
-                  <option value="kur">Kurdish</option>
-                  <option value="lao">Lao</option>
-                  <option value="lat">Latin</option>
-                  <option value="lav">Latvian</option>
-                  <option value="lit">Lithuanian</option>
-                  <option value="mal">Malayalam</option>
-                  <option value="mar">Marathi</option>
-                  <option value="mkd">Macedonian</option>
-                  <option value="mlt">Maltese</option>
-                  <option value="msa">Malay</option>
-                  <option value="mya">Burmese</option>
-                  <option value="nep">Nepali</option>
-                  <option value="nld">Dutch; Flemish</option>
-                  <option value="nor">Norwegian</option>
-                  <option value="ori">Oriya</option>
-                  <option value="pan">Panjabi; Punjabi</option>
-                  <option value="pol">Polish</option>
-                  <option value="por">Portuguese</option>
-                  <option value="pus">Pushto; Pashto</option>
-                  <option value="ron">Romanian; Moldavian; Moldovan</option>
-                  <option value="rus">Russian</option>
-                  <option value="san">Sanskrit</option>
-                  <option value="sin">Sinhala; Sinhalese</option>
-                  <option value="slk">Slovak</option>
-                  <option value="slv">Slovenian</option>
-                  <option value="spa">Spanish; Castilian</option>
-                  <option value="spa_old">Spanish; Castilian - Old</option>
-                  <option value="sqi">Albanian</option>
-                  <option value="srp">Serbian</option>
-                  <option value="srp">latn  Serbian - Latin</option>
-                  <option value="swa">Swahili</option>
-                  <option value="swe">Swedish</option>
-                  <option value="syr">Syriac</option>
-                  <option value="tam">Tamil</option>
-                  <option value="tel">Telugu</option>
-                  <option value="tgk">Tajik</option>
-                  <option value="tgl">Tagalog</option>
-                  <option value="tha">Thai</option>
-                  <option value="tir">Tigrinya</option>
-                  <option value="tur">Turkish</option>
-                  <option value="uig">Uighur; Uyghur</option>
-                  <option value="ukr">Ukrainian</option>
-                  <option value="urd">Urdu</option>
-                  <option value="uzb">Uzbek</option>
-                  <option value="uzb_cyrl">Uzbek - Cyrillic</option>
-                  <option value="vie">Vietnamese</option>
-                  <option value="yid">Yiddish</option>
+                    <option value="afr">Afrikaans</option>
+                    <option value="amh">Amharic</option>
+                    <option value="ara">Arabic</option>
+                    <option value="asm">Assamese</option>
+                    <option value="aze">Azerbaijani</option>
+                    <option value="aze_cyrl">Azerbaijani - Cyrillic</option>
+                    <option value="bel">Belarusian</option>
+                    <option value="ben">Bengali</option>
+                    <option value="bod">Tibetan</option>
+                    <option value="bos">Bosnian</option>
+                    <option value="bul">Bulgarian</option>
+                    <option value="cat">Catalan; Valencian</option>
+                    <option value="ceb">Cebuano</option>
+                    <option value="ces">Czech</option>
+                    <option value="chi_sim">Chinese - Simplified</option>
+                    <option value="chi_tra">Chinese - Traditional</option>
+                    <option value="chr">Cherokee</option>
+                    <option value="cym">Welsh</option>
+                    <option value="dan">Danish</option>
+                    <option value="deu">German</option>
+                    <option value="dzo">Dzongkha</option>
+                    <option value="ell">Greek, Modern (1453-)</option>
+                    <option value="enm">English, Middle (1100-1500)</option>
+                    <option value="eng">English</option>
+                    <option value="epo">Esperanto</option>
+                    <option value="est">Estonian</option>
+                    <option value="eus">Basque</option>
+                    <option value="fas">Persian</option>
+                    <option value="fra">French</option>
+                    <option value="fin">Finnish</option>
+                    <option value="frk">German Fraktur</option>
+                    <option value="frm">French, Middle (ca. 1400-1600)</option>
+                    <option value="gle">Irish</option>
+                    <option value="glg">Galician</option>
+                    <option value="grc">Greek, Ancient (-1453)</option>
+                    <option value="guj">Gujarati</option>
+                    <option value="hat">Haitian; Haitian Creole</option>
+                    <option value="heb">Hebrew</option>
+                    <option value="hin">Hindi</option>
+                    <option value="hrv">Croatian</option>
+                    <option value="hun">Hungarian</option>
+                    <option value="iku">Inuktitut</option>
+                    <option value="ind">Indonesian</option>
+                    <option value="isl">Icelandic</option>
+                    <option value="ita">Italian</option>
+                    <option value="ita_old">Italian - Old</option>
+                    <option value="jav">Javanese</option>
+                    <option value="jpn">Japanese</option>
+                    <option value="jpn_vert">Japanese - Vertical</option>
+                    <option value="kan">Kannada</option>
+                    <option value="kat">Georgian</option>
+                    <option value="kat_old">Georgian - Old</option>
+                    <option value="kaz">Kazakh</option>
+                    <option value="khm">Central Khmer</option>
+                    <option value="kir">Kirghiz; Kyrgyz</option>
+                    <option value="kor">Korean</option>
+                    <option value="kur">Kurdish</option>
+                    <option value="lao">Lao</option>
+                    <option value="lat">Latin</option>
+                    <option value="lav">Latvian</option>
+                    <option value="lit">Lithuanian</option>
+                    <option value="mal">Malayalam</option>
+                    <option value="mar">Marathi</option>
+                    <option value="mkd">Macedonian</option>
+                    <option value="mlt">Maltese</option>
+                    <option value="msa">Malay</option>
+                    <option value="mya">Burmese</option>
+                    <option value="nep">Nepali</option>
+                    <option value="nld">Dutch; Flemish</option>
+                    <option value="nor">Norwegian</option>
+                    <option value="ori">Oriya</option>
+                    <option value="pan">Panjabi; Punjabi</option>
+                    <option value="pol">Polish</option>
+                    <option value="por">Portuguese</option>
+                    <option value="pus">Pushto; Pashto</option>
+                    <option value="ron">Romanian; Moldavian; Moldovan</option>
+                    <option value="rus">Russian</option>
+                    <option value="san">Sanskrit</option>
+                    <option value="sin">Sinhala; Sinhalese</option>
+                    <option value="slk">Slovak</option>
+                    <option value="slv">Slovenian</option>
+                    <option value="spa">Spanish; Castilian</option>
+                    <option value="spa_old">Spanish; Castilian - Old</option>
+                    <option value="sqi">Albanian</option>
+                    <option value="srp">Serbian</option>
+                    <option value="srp">latn Serbian - Latin</option>
+                    <option value="swa">Swahili</option>
+                    <option value="swe">Swedish</option>
+                    <option value="syr">Syriac</option>
+                    <option value="tam">Tamil</option>
+                    <option value="tel">Telugu</option>
+                    <option value="tgk">Tajik</option>
+                    <option value="tgl">Tagalog</option>
+                    <option value="tha">Thai</option>
+                    <option value="tir">Tigrinya</option>
+                    <option value="tur">Turkish</option>
+                    <option value="uig">Uighur; Uyghur</option>
+                    <option value="ukr">Ukrainian</option>
+                    <option value="urd">Urdu</option>
+                    <option value="uzb">Uzbek</option>
+                    <option value="uzb_cyrl">Uzbek - Cyrillic</option>
+                    <option value="vie">Vietnamese</option>
+                    <option value="yid">Yiddish</option>
                 </optgroup>
-              </select>
+            </select>
+            <button id="answer">Submit</button>
+        </div>
+        <div class="tool-row">
+            <button id="save-screenshot">Save Screenshot</button>
+            <button id="save-text">Save Text</button>
+        </div>
+        <div class="tool-buttons">
+            <button id="expand" style="display:none;">Expand</button>
+            <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button>
+        </div>
+        <label for="summary-area" id="answer-heading" style="display: none;">Prompt Response
+    </div>
+    <div id="summary-area" style="display: none;"></div>
 
-              <div class="tool-buttons">
-              <button id="expand" style="display:none;">Expand</button>
-              <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button>
-              <button id="copy" disabled>Copy Text</button>
-  
-              <div id="prompt-functions">
-                <input type="text" placeholder="Ask a question" id="prompt">
-                <input type="text" placeholder="Enter your API key" id="key">
-              </div>
 
-  <button id="answer" style="margin-left: 5%;">Get Answer</button>
 </div>
 
 
-            </div>
-                          
 
-              
-          </div>
+</div>
         `;
                 this.events = {};
             }
