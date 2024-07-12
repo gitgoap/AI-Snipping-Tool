@@ -10,27 +10,22 @@ A **Chrome extension** that takes custom screenshots, **extracts text**, and all
 
 `Step 1:` Take the screenshot
 </br>
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/740449dd-f4e0-4b3f-b6f2-1985d3f295f0" height= 400 >
+
+![one](https://github.com/user-attachments/assets/346ea865-c4e1-4d74-8c7a-2cc7439cbcd9)
+
 </br></br></br>
 `Step 2:` Copy the *obtained text* or proceed further
 </br>
 
-
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/f1c582bc-2222-4d4f-8941-689da9e517cc" height= 500 >
+![two](https://github.com/user-attachments/assets/77759f9d-3719-4376-b76d-c2d8862cc2aa)
 
 </br></br>
 `Step 3:` Fill *Google Gemini* API key and ask related *question*
 <br>
 Prerequisite: `Google Gemini API`
-
 </br>
 
-
-
-<img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/b92a1b58-6eb0-40cd-a88c-eb66aaa97550" height= 550 >
-
-
-
+![three](https://github.com/user-attachments/assets/8a376820-62b1-4f65-9e65-8c4ed71b9d08)
 
 </br></br>
 ## Steps to get Gemini API key
