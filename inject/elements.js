@@ -181,9 +181,18 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         border-radius: 12px;
         padding: 10px;
         font-size: 14px;
-        width: 85%
+        width: 80%;
     }
 
+    #save-key {
+        width: 15%;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    #api-key-section {
+        display: flex;
+    }
     #result,
     #result-in-process {
         overflow-y: scroll;
@@ -363,8 +372,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         <label for="prompt">Prompt</label>
         <input type="text" placeholder="Ask a question" id="prompt">
         </br>
-        <label for="key">API Key</label>
-        <input type="text" placeholder="Enter your Gemini API key" id="key">
+        <label for="api-key-section">API Key</label>
+        <div id="api-key-section">
+            <input type="text" placeholder="Enter your Gemini API key" id="key">
+            <button id="save-key">Save</button>
+        </div>
     </div>
     <div id="tools">
         <div class="tool-row">
@@ -615,6 +627,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     this.setAttribute('dark-mode', '');
                 }
 
+                // Enter saved API Key in the API Key input field.
+                const API_KEY = localStorage.getItem('gemini-api-key');
+                const apiKeyField = this.shadowRoot.querySelector('#key'); // Changed from getElementById to querySelector
+                apiKeyField.value = API_KEY;
+
                 // copy
                 this.shadowRoot.getElementById('copy').onclick = async () => {
                     try {
@@ -761,6 +778,13 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                   .catch(error => {
                     console.error('Error:', error);
                   });
+                };
+
+                // Save API Key
+                this.shadowRoot.getElementById('save-key').onclick = e => {
+                    var API_KEY = this.shadowRoot.getElementById('key').value
+                    localStorage.setItem('gemini-api-key', API_KEY);
+                    console.log(localStorage.getItem('gemini-api-key'));
                 };
 
                 // Save text
