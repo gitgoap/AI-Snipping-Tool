@@ -162,6 +162,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         color: #007AFF;
         width: 15%;
         padding: 5px;
+        white-space: nowrap;
     }
 
     label {
