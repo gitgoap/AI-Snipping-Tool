@@ -229,7 +229,7 @@ To get a local copy up and running follow these simple steps
  
 <h1 align = "center">Our Contributors ❤️</h2>
 <div align = "center">
- <h3>Thank you for contributing to our repository</h3>
+ <h3>Thank you for contributing to our repository.</h3>
 
 ![Contributors](https://contrib.rocks/image?repo=gitgoap/AI-Snipping-Tool_IIT-D_Hackathon)
 
