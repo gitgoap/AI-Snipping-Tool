@@ -15,29 +15,30 @@
 
                 const shadow = this.attachShadow({ mode: 'open' });
                 shadow.innerHTML = `
-          <style>
-            #body {
-            font-family: Georgia, sans-serif;
-              display: flex;
-              position: fixed;
-              top: 10px;
-              right: 10px;
-              /* padding: 5px; */
-              z-index: 10000000000;
-              gap: 5px;
-              flex-direction: column;
-              background-color: transparent;
-              height: 30vh;
-              width: 40vw;
-              max-height: 500px;
-              max-width: 50vw;
-              color-scheme: light;
-              
-            }
-          </style>
-          <div id="body">
-            <slot></slot>
-          </div>
+                <style>
+
+                    #body {
+                    font-family: Verdana, sans-serif;
+                    display: flex;
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    /* padding: 5px; */
+                    z-index: 10000000000;
+                    gap: 5px;
+                    flex-direction: column;
+                    background-color: transparent;
+                    height: 30vh;
+                    width: 40vw;
+                    max-height: 500px;
+                    max-width: 50vw;
+                    color-scheme: light;
+                    
+                    }
+                </style>
+                <div id="body">
+                    <slot></slot>
+                </div>
         `;
             }
         }
@@ -96,6 +97,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 shadow.innerHTML = `
           <style>
     body {
+        font-family: Verdana, sans-serif;
         background-color: #f5f5f7;
         margin: 0;
         padding: 0;
@@ -103,6 +105,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #body {
+        font-family: Verdana, sans-serif;
         max-height: 500px;
         width: 350px;
         padding: 20px;
@@ -155,6 +158,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
     #close,
     #copy {
+        font-family: Verdana, sans-serif;
         border: solid;
         background: none;
         font-size: 16px;
@@ -177,6 +181,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     #prompt,
     #key,
     #summary-area {
+        font-family: Verdana, sans-serif;
         background-color: #fff;
         border: 1px solid #d1d1d1;
         border-radius: 12px;
@@ -232,6 +237,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     button {
+        font-family: Verdana, sans-serif;
         background-color: #007AFF;
         color: #fff;
         border: none;
@@ -243,6 +249,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #summary-area {
+        font-family: Verdana, sans-serif;
         height: 40px;
         margin-top: 10px;
         padding: 10px;
@@ -616,22 +623,27 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                     const isDarkMode = this.hasAttribute('dark-mode');
                     if (isDarkMode) {
                         this.removeAttribute('dark-mode');
-                        localStorage.removeItem('dark-mode');
+                        chrome.storage.local.remove('dark-mode');
                     } else {
                         this.setAttribute('dark-mode', '');
-                        localStorage.setItem('dark-mode', 'true');
+                        chrome.storage.local.set({ 'dark-mode': 'true' });
                     }
                 };
 
                 // Apply saved dark mode preference
-                if (localStorage.getItem('dark-mode') === 'true') {
-                    this.setAttribute('dark-mode', '');
-                }
+                chrome.storage.local.get('dark-mode', function(result) {
+                    if (result['dark-mode'] === 'true') {
+                      this.setAttribute('dark-mode', '');
+                    }
+                  }.bind(this));
 
                 // Enter saved API Key in the API Key input field.
-                const API_KEY = localStorage.getItem('gemini-api-key');
-                const apiKeyField = this.shadowRoot.querySelector('#key'); // Changed from getElementById to querySelector
-                apiKeyField.value = API_KEY;
+                chrome.storage.local.get('gemini-api-key', function(result) {
+                    const API_KEY = result['gemini-api-key'];
+                    const apiKeyField = this.shadowRoot.querySelector('#key'); // Changed from getElementById to querySelector
+                    apiKeyField.value = API_KEY;
+                  }.bind(this));
+                  
 
                 // copy
                 this.shadowRoot.getElementById('copy').onclick = async () => {
@@ -783,10 +795,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
                 // Save API Key
                 this.shadowRoot.getElementById('save-key').onclick = e => {
-                    var API_KEY = this.shadowRoot.getElementById('key').value
-                    localStorage.setItem('gemini-api-key', API_KEY);
-                    console.log(localStorage.getItem('gemini-api-key'));
+                    var API_KEY = this.shadowRoot.getElementById('key').value;
+                    chrome.storage.local.set({ 'gemini-api-key': API_KEY }, function() {
+                    console.log(API_KEY);
+                    });
                 };
+  
 
                 // Save text
                 this.shadowRoot.getElementById('save-text').onclick = e => {
@@ -811,21 +825,24 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
               };
                              
               // Save screenshot
-              this.shadowRoot.getElementById('save-screenshot').onclick = e => {
-                const url = localStorage.getItem('ocr-screenshot');
-                
-                // Create a link element
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'screenshot.png';
-                
-                // Append the link to the Shadow DOM and click it
-                this.shadowRoot.appendChild(a);
-                a.click();
-                
-                // Remove the link from the Shadow DOM
-                this.shadowRoot.removeChild(a);
-            };
+                this.shadowRoot.getElementById('save-screenshot').onclick = e => {
+                    chrome.storage.local.get('ocr-screenshot', function(result) {
+                    const url = result['ocr-screenshot'];
+                    
+                    // Create a link element
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'screenshot.png';
+                    
+                    // Append the link to the Shadow DOM and click it
+                    this.shadowRoot.appendChild(a);
+                    a.click();
+                    
+                    // Remove the link from the Shadow DOM
+                    this.shadowRoot.removeChild(a);
+                    }.bind(this));
+                };
+  
                              
                 // close
                 this.shadowRoot.getElementById('close').onclick = e => {

@@ -18,7 +18,8 @@
 
   const ocr = (lang, src) => {
     // store screenshot url in local storage
-    localStorage.setItem('ocr-screenshot', src);
+    chrome.storage.local.set({ 'ocr-screenshot': src });
+
 
     const report = report => {
       command('message', report.status);
