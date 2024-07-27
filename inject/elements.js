@@ -183,6 +183,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     #summary-area {
         font-family: Verdana, sans-serif;
         background-color: #fff;
+        color: #333333;
         border: 1px solid #d1d1d1;
         border-radius: 12px;
         padding: 10px;
@@ -640,10 +641,12 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 // Enter saved API Key in the API Key input field.
                 chrome.storage.local.get('gemini-api-key', function(result) {
                     const API_KEY = result['gemini-api-key'];
-                    const apiKeyField = this.shadowRoot.querySelector('#key'); // Changed from getElementById to querySelector
-                    apiKeyField.value = API_KEY;
-                  }.bind(this));
-                  
+                    if (API_KEY !== undefined) { 
+                        // Check if API_KEY is not undefined
+                        const apiKeyField = this.shadowRoot.querySelector('#key');
+                        apiKeyField.value = API_KEY;
+                        }
+                    }.bind(this));
 
                 // copy
                 this.shadowRoot.getElementById('copy').onclick = async () => {
