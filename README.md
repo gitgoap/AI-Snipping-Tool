@@ -11,13 +11,13 @@ A **Chrome extension** that takes custom screenshots, **extracts text**, and all
 `Step 1:` Take the screenshot
 </br>
 
-<img src ="https://github.com/user-attachments/assets/346ea865-c4e1-4d74-8c7a-2cc7439cbcd9" height= 500 width= 975 >
+![Screenshot (40)](https://github.com/user-attachments/assets/7171eaeb-efb4-45cd-92e1-822be10b2c26)
 
 </br></br></br>
 `Step 2:` Copy the *obtained text* or proceed further
 </br>
 
-<img src ="https://github.com/user-attachments/assets/77759f9d-3719-4376-b76d-c2d8862cc2aa" height= 500 width= 975 >
+![Screenshot (38)](https://github.com/user-attachments/assets/50ce95f2-0f29-4594-8326-f98ac3c07a8b)
 
 </br></br>
 `Step 3:` Fill *Google Gemini* API key and ask related *question*
@@ -25,7 +25,7 @@ A **Chrome extension** that takes custom screenshots, **extracts text**, and all
 Prerequisite: `Google Gemini API`
 </br>
 
-<img src ="https://github.com/user-attachments/assets/8a376820-62b1-4f65-9e65-8c4ed71b9d08" height= 500 width= 975>
+![Screenshot (39)](https://github.com/user-attachments/assets/cf75db26-a63c-40d5-8dd0-3976b80076de)
 
 </br></br>
 ## Steps to get Gemini API key
