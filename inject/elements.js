@@ -96,8 +96,9 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 const shadow = this.attachShadow({ mode: 'open' });
                 shadow.innerHTML = `
           <style>
-    body {
+        body {
         font-family: Verdana, sans-serif;
+        font-size: 12px;
         background-color: #f5f5f7;
         margin: 0;
         padding: 0;
@@ -106,10 +107,10 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
     #body {
         font-family: Verdana, sans-serif;
-        max-height: 500px;
-        width: 350px;
-        padding: 20px;
-        border-radius: 10px;
+        max-height: 510px;
+        width: 340px;
+        padding: 15px;
+        border-radius: 8px;
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(10px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -119,8 +120,8 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
         border-bottom: solid;
     }
 
@@ -130,9 +131,9 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     .logo {
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
     }
 
     .right-icons {
@@ -141,7 +142,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     .github-link {
-        margin-right: 12px;
+        margin-right: 10px;
     }
 
     .github-logo {
@@ -149,7 +150,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #toggle-dark-mode {
-        margin-left: 12px;
+        margin-left: 10px;
     }
 
     .dark-toggle {
@@ -161,18 +162,18 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         font-family: Verdana, sans-serif;
         border: solid;
         background: none;
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
         color: #007AFF;
         width: 15%;
-        padding: 5px;
+        padding: 4px;
         white-space: nowrap;
     }
 
     label {
         display: block;
         font-weight: 500;
-        margin: 10px 0 5px;
+        margin: 8px 0 4px;
         color: #333;
     }
 
@@ -185,41 +186,42 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         background-color: #fff;
         color: #333333;
         border: 1px solid #d1d1d1;
-        border-radius: 12px;
-        padding: 10px;
-        font-size: 14px;
+        border-radius: 10px;
+        padding: 8px;
+        font-size: 12px;
         width: 80%;
     }
 
     #save-key {
         width: 15%;
-        font-size: 12px;
-        margin-left: 5px;
+        font-size: 11px;
+        margin-left: 4px;
     }
 
     #api-key-section {
         display: flex;
     }
+
     #result,
     #result-in-process {
         overflow-y: scroll;
-        height: 40px;
+        height: 35px;
     }
 
     #tools {
-        margin-top: 15px;
+        margin-top: 12px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .tool-row {
         display: flex;
         justify-content: space-between;
-        gap: 10px;
+        gap: 8px;
     }
 
-    .tool-row>* {
+    .tool-row > * {
         flex: 1;
         min-width: 0;
     }
@@ -227,11 +229,11 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     select.language_select,
     button {
         width: 100%;
-        padding: 8px 12px;
-        border-radius: 12px;
+        padding: 6px 10px;
+        border-radius: 10px;
         border: 1px solid #d1d1d1;
         background-color: #f5f5f7;
-        font-size: 14px;
+        font-size: 12px;
         color: #333;
         transition: all 0.2s ease;
         cursor: pointer;
@@ -251,10 +253,10 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
 
     #summary-area {
         font-family: Verdana, sans-serif;
-        height: 40px;
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 12px;
+        height: 35px;
+        margin-top: 8px;
+        padding: 8px;
+        border-radius: 10px;
         background-color: rgba(245, 245, 247, 0.6);
         backdrop-filter: blur(5px);
         overflow-y: scroll;
@@ -262,7 +264,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #answer-heading {
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     :host {
@@ -276,9 +278,9 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         --border-color: none;
         --text-color: #2e4053;
         --button-color: #ffffff;
-        --width: 400px;
-        --height: 300px;
-        --gap: 10px;
+        --width: 360px;
+        --height: 270px;
+        --gap: 8px;
     }
 
     :host([dark-mode]) {
@@ -329,19 +331,19 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     .preview-button-container {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     #preview-screenshot {
         color: #ecf0f1;
         display: flex;
         align-items: center;
-        gap: 5px;
-        padding: 5px 10px;
+        gap: 4px;
+        padding: 4px 8px;
         background-color: #2c3e50;
         border-color: #4a4a4a;
         border: 1px solid;
-        border-radius: 5px;
+        border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
@@ -351,8 +353,8 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #preview-screenshot svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
     }
 </style>
 
