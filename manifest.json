@@ -27,7 +27,7 @@
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },
   "web_accessible_resources": [{
-    "resources": ["/engine/index.html"],
+    "resources": ["/engine/index.html", "/engine/preview-controls.js"],
     "matches": ["<all_urls>"]
   }]
  

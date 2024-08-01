@@ -281,10 +281,6 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         --gap: 10px;
     }
 
-    :host([data-mode='expand']) {
-        --height: 70vh;
-    }
-
     :host([dark-mode]) {
         --background-color: #06041a;
         --text-color: #e0e0e0;
@@ -331,6 +327,33 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     :host([dark-mode]) .section-heading a {
         color: #FDDE5A;
     }
+
+    .preview-button-container {
+        margin-bottom: 10px;
+    }
+
+    #preview-screenshot {
+        color: #ecf0f1;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        background-color: #2c3e50;
+        border-color: #4a4a4a;
+        border: 1px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #preview-screenshot:hover {
+        background-color: #34495e;
+    }
+
+    #preview-screenshot svg {
+        width: 16px;
+        height: 16px;
+    }
 </style>
 
 <div id="body">
@@ -368,6 +391,15 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         </div>
         <button id="copy" disabled>Copy</button>
         <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
+    </div>
+    <div class="preview-button-container">
+    <button id="preview-screenshot" title="Preview Screenshot">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+            <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+        </svg>
+        Preview Screenshot
+    </button>
     </div>
     <label for="result">OCR Text</label>
     <div id="result" data-msg="Please wait..." style="display:none;"></div>
@@ -507,7 +539,6 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             <button id="save-text">Save Text</button>
         </div>
         <div class="tool-buttons">
-            <button id="expand" style="display:none;">Expand</button>
             <button id="post" disabled title="${this.locales.post}" style="display:none;">Post Result</button>
         </div>
         <label for="summary-area" id="answer-heading" style="display: none;">Prompt Response
@@ -619,6 +650,84 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                 }, timeout);
             }
             connectedCallback() {
+                // Preview screenshot
+                this.shadowRoot.getElementById('preview-screenshot').onclick = e => {
+                    chrome.storage.local.get('ocr-screenshot', function(result) {
+                        const url = result['ocr-screenshot'];
+                        if (url) {
+                            const screenWidth = window.screen.width;
+                            const screenHeight = window.screen.height;
+                            const windowWidth = Math.max(400, Math.min(600, screenWidth * 0.5));
+                            const windowHeight = Math.max(300, Math.min(450, screenHeight * 0.5));
+                            const left = (screenWidth - windowWidth) / 2;
+                            const top = (screenHeight - windowHeight) / 2;
+
+                            const previewWindow = window.open("", "Screenshot Preview", 
+                                `width=${windowWidth},height=${windowHeight},left=${left},top=${top},resizable=yes,scrollbars=yes`);
+                            
+                            previewWindow.document.write(`
+                                <html>
+                                    <head>
+                                        <title>Screenshot Preview</title>
+                                        <style>
+                                            body {
+                                                margin: 0;
+                                                padding: 10px;
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: center;
+                                                align-items: center;
+                                                height: 100vh;
+                                                background-color: #f0f0f0;
+                                                box-sizing: border-box;
+                                                font-family: Arial, sans-serif;
+                                            }
+                                            #image-container {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                height: calc(100% - 50px);
+                                                width: 100%;
+                                                overflow: auto;
+                                            }
+                                            img {
+                                                max-width: 100%;
+                                                max-height: 100%;
+                                                object-fit: contain;
+                                                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                                                transition: transform 0.3s ease;
+                                            }
+                                            #controls {
+                                                display: flex;
+                                                gap: 10px;
+                                                margin-top: 10px;
+                                            }
+                                            button {
+                                                padding: 5px 10px;
+                                                cursor: pointer;
+                                            }
+                                        </style>
+                                    </head>
+                                    <body>
+                                        <div id="image-container">
+                                            <img src="${url}" alt="Captured Screenshot" id="preview-image">
+                                        </div>
+                                        <div id="controls">
+                                            <button id="zoom-in">Zoom In</button>
+                                            <button id="zoom-out">Zoom Out</button>
+                                            <button id="rotate-left">Rotate Left</button>
+                                            <button id="rotate-right">Rotate Right</button>
+                                        </div>
+                                        <script src="${chrome.runtime.getURL('engine/preview-controls.js')}"></script>
+                                    </body>
+                                </html>
+                            `);
+        } else {
+            alert("No screenshot available to preview.");
+        }
+    });
+};
+
                 // Add dark mode toggle logic
                 this.shadowRoot.getElementById('toggle-dark-mode').onclick = () => {
                     const isDarkMode = this.hasAttribute('dark-mode');
@@ -856,75 +965,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
                         metaKey: e.metaKey
                     }));
                 };
-                this.shadowRoot.getElementById('star_1').onmouseover = e => {
-                    this.shadowRoot.getElementById('star_1').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.remove('chose_star')
-                };
-                this.shadowRoot.getElementById('star_1').onclick = e => {
-                    var newURL = "https://google-chrome-extensions.com/apps/Convert-Picture-to-Text/help-us/"
-                    window.open(newURL)
-                };
-                this.shadowRoot.getElementById('star_2').onmouseover = e => {
-                    this.shadowRoot.getElementById('star_1').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.remove('chose_star')
-                };
-                this.shadowRoot.getElementById('star_2').onclick = e => {
-                    var newURL = "https://google-chrome-extensions.com/apps/Convert-Picture-to-Text/help-us/"
-                    window.open(newURL)
-                };
-                this.shadowRoot.getElementById('star_3').onmouseover = e => {
-                    this.shadowRoot.getElementById('star_1').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.remove('chose_star')
-                };
-                this.shadowRoot.getElementById('star_3').onclick = e => {
-                    var newURL = "https://google-chrome-extensions.com/apps/Convert-Picture-to-Text/help-us/"
-                    window.open(newURL)
-                };
-                this.shadowRoot.getElementById('star_4').onmouseover = e => {
-                    this.shadowRoot.getElementById('star_1').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.remove('chose_star')
-                };
-                this.shadowRoot.getElementById('star_4').onclick = e => {
-                    var newURL = "https://chromewebstore.google.com/detail/convert-picture-to-text/dlkjdkiladlnclocjpcikagojeddmkeh/reviews"
-                    window.open(newURL)
-                };
-                this.shadowRoot.getElementById('star_5').onmouseover = e => {
-                    this.shadowRoot.getElementById('star_1').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.add('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.add('chose_star')
-                };
-                this.shadowRoot.getElementById('star_5').onclick = e => {
-                    var newURL = "https://chromewebstore.google.com/detail/convert-picture-to-text/dlkjdkiladlnclocjpcikagojeddmkeh/reviews"
-                    window.open(newURL)
-                };
-                this.shadowRoot.getElementById('rate_block').onmouseout = e => {
-                    this.shadowRoot.getElementById('star_1').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_2').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_3').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_4').classList.remove('chose_star')
-                    this.shadowRoot.getElementById('star_5').classList.remove('chose_star')
-                };
 
-
-                // expand
-                this.shadowRoot.getElementById('expand').onclick = e => {
-                    this.dataset.mode = this.dataset.mode === 'expand' ? 'collapse' : 'expand';
-                    e.target.value = this.dataset.mode === 'expand' ? 'Collapse' : 'Expand';
-                };
                 // apply commands on cross-origin (Firefox Only)
                 this.addEventListener('command', () => {
                     const { name, args } = JSON.parse(this.getAttribute('command'));
