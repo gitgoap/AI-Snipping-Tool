@@ -110,6 +110,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         max-height: 510px;
         width: 340px;
         padding: 15px;
+        padding-bottom: 20px;
         border-radius: 8px;
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(10px);
@@ -168,6 +169,14 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         width: 15%;
         padding: 4px;
         white-space: nowrap;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    #close:hover,
+    #copy:hover {
+        color: #003e80;
+        transition: 0.2s ease;
     }
 
     label {
@@ -335,26 +344,39 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
     }
 
     #preview-screenshot {
-        color: #ecf0f1;
+        color: #333;
         display: flex;
         align-items: center;
         gap: 4px;
         padding: 4px 8px;
-        background-color: #2c3e50;
+        background-color: #f5f5f7;
         border-color: #4a4a4a;
-        border: 1px solid;
+        border: 1px solid #d1d1d1;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: all 0.2s ease;
+        cursor: pointer;
     }
 
     #preview-screenshot:hover {
-        background-color: #34495e;
+        background-color: #e3e3e8;
     }
 
     #preview-screenshot svg {
         width: 14px;
         height: 14px;
+    }
+
+    :host([dark-mode]) #preview-screenshot {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        border-color: #4a4a4a;
+        transition: 0.2s ease;
+    }
+
+    :host([dark-mode]) #preview-screenshot:hover {
+        background-color: #486684;
+        transition: 0.2s ease;
     }
 </style>
 
@@ -392,7 +414,7 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
             </svg>
         </div>
         <button id="copy" disabled>Copy</button>
-        <button id="close" title="${this.locales.close}"><i class="fa fa-close"></i>Close</button>
+        <button id="close" title="${this.locales.close}">Close</button>
     </div>
     <div class="preview-button-container">
     <button id="preview-screenshot" title="Preview Screenshot">
@@ -415,7 +437,16 @@ Use Ctrl + Click or Command + Click to remove local language training data`,
         <label for="prompt">Prompt</label>
         <input type="text" placeholder="Ask a question" id="prompt">
         </br>
-        <label for="api-key-section">API Key</label>
+        <label for="api-key-section">API Key
+            <a href="https://aistudio.google.com/app/apikey" title="Get API Key" style="text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+            </a>
+        </label>
+
         <div id="api-key-section">
             <input type="text" placeholder="Enter your Gemini API key" id="key">
             <button id="save-key">Save</button>
