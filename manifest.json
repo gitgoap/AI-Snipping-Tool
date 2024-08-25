@@ -2,7 +2,7 @@
 "update_url": "https://clients2.google.com/service/update2/crx",
 
   "manifest_version": 3,
-  "version": "0.0.5",
+  "version": "1.0.0",
   "name": "AI Snipping Tool",
   "description": "capture the screenshot and extract text from the image",
   "default_locale": "en",
