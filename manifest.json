@@ -3,7 +3,7 @@
 
   "manifest_version": 3,
   "version": "0.0.5",
-  "name": "AI screenshot",
+  "name": "AI Snipping Tool",
   "description": "capture the screenshot and extract text from the image",
   "default_locale": "en",
   "permissions": [
