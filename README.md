@@ -173,9 +173,10 @@ To get a local copy up and running follow these simple steps
 
 </br>
 
-<img src ="https://github.com/meetalik8/AI-Snipping-Tool/assets/102135323/6082db70-8e32-47ae-b8fa-549540914088" height= 335 >
+<img src ="https://github.com/user-attachments/assets/4652de5e-f7e6-457c-81d9-1005e016fe8a" height= 335 >
 
-- Copying code directly to the editor  is not possible
+- Copying code directly to the editor  is not possible 
+
 
 </br>
 
