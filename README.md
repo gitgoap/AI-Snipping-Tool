@@ -154,7 +154,7 @@ To get a local copy up and running follow these simple steps
 <img src ="https://github.com/gitgoap/AI-Snipping-Tool/assets/117789470/c8d8996b-3bc4-4d7b-ae79-878f17637d34" height= 300 >
 
 
-- Manually typing the displayed link is inefficient and prone to errors if it can't be copied.
+- Manually typing the displayed link is inefficient and prone to errors.
 
 
 </br>
