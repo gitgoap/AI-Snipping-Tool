@@ -251,7 +251,8 @@ To get a local copy up and running follow these simple steps
 
 
  
- 
+ ![Screenshot 2024-12-26 204558](https://github.com/user-attachments/assets/c48b9fe7-d1c5-40ff-9946-02a4cfedc1b9)
+
 
 
 
