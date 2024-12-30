@@ -116,6 +116,7 @@ To get a local copy up and running follow these simple steps
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
+ - Get the issue assiged.
  - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
 
 </br></br>
