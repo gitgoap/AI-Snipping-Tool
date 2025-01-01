@@ -84,7 +84,9 @@ Prerequisite: `Google Gemini API`
 To get a local copy up and running follow these simple steps
 
 
-### Installation
+## Installation Guide
+
+Watch the detailed installation guide here: [YouTube Video](https://youtu.be/PRVnVOW8o1U)
 
 1. Open Git Bash and change directory
    
