@@ -218,11 +218,9 @@ To get a local copy up and running follow these simple steps
 
 # Future Scope / Features
 
-- **YouTube Video Screenshot:** Capture text in the current YouTube video frame with just one click of a popup button.
+- [ ] **YouTube Video Screenshot:** Capture text in the current YouTube video frame with just one click of a popup button.
+- [ ] **Answers questions just with screenshots:** This feature is possible by utilizing the multimodal feature of Google Gemini.
 
-  
-
-- Answers questions just with screenshots: This feature is possible by utilizing the multimodal feature of Google Gemini.
 
   ![image](https://github.com/gitgoap/HackFest-24-IIT-Dhanbad/assets/117789470/1592f070-2e07-436b-b268-dc25be5e8e53)
 
