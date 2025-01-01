@@ -217,16 +217,10 @@ To get a local copy up and running follow these simple steps
 </br></br>
 
 # Future Scope / Features
-<form>
-  <label>
-    <input type="checkbox" /> **YouTube Video Screenshot:** Capture text in the current YouTube video frame with just one click of a popup button.
-  </label>
-  <br />
-  <label>
-    <input type="checkbox" /> **Answers questions just with screenshots:** This feature is possible by utilizing the multimodal feature of Google Gemini.
-  </label>
-  <br />
-</form>
+
+- [ ] **YouTube Video Screenshot:** Capture text in the current YouTube video frame with just one click of a popup button.
+- [ ] **Answers questions just with screenshots:** This feature is possible by utilizing the multimodal feature of Google Gemini.
+
 
 
   
