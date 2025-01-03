@@ -4,6 +4,14 @@
 
 A **Chrome extension** that takes custom screenshots, **extracts text**, and allows users to **ask questions** from the extracted content. 
 
+### Features of AI Snipping Tool
+
+1. **Custom Screenshots**: Capture screenshots from Chrome.
+2. **Text Extraction**: Extract text from screenshots using Tesseract OCR.
+3. **Ask Questions**: Use Google Gemini API to ask questions based on extracted text.
+4. **User Preferences**: Configure language and accuracy settings for OCR.
+5. **Interactive OCR Results**: View and interact with extracted text within the tool.
+
 </br>
 
 ## Chrome Extension popup
