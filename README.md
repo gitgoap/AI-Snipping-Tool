@@ -86,7 +86,7 @@ To get a local copy up and running follow these simple steps
 
 ## Installation Guide
 
-Watch the detailed installation guide here: [YouTube Video](https://youtu.be/PRVnVOW8o1U)
+
 
 https://github.com/user-attachments/assets/a8769d70-4d1e-4b93-a2f5-7692ab313b3f
 
