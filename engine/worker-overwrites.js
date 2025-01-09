@@ -5,86 +5,70 @@ self.fetch = new Proxy(self.fetch, {
         const [href, options] = args;
 
         if (href.includes('.traineddata.gz')) {
-           
-            const validate = r => {
-                if (r.ok) {
-                    return r;
+            const validateResponse = response => {
+                if (response.ok) {
+                    return response;
                 }
-                throw Error('[Extract Text From Image] Cannot download traineddata (' + r.status + ')');
+                throw new Error(`[Extract Text From Image] Failed to download traineddata: ${response.statusText} (${response.status})`);
             };
 
-            const promise = new Promise(resolve => {
-                resolve();
-            }).then(async () => {
-                let cache = null;
-
-                
+            const fetchTrainedData = async () => {
+                let cache;
                 try {
                     cache = await caches.open('traineddata');
-                } catch (e) {
-                    console.warn('[Extract Text From Image] CacheStorage interface is not available which may affect performance. Might be the Brave browser or disabled cookies.');
+                } catch (error) {
+                    console.warn('[Extract Text From Image] CacheStorage is unavailable. This may impact performance. Possible causes: Brave browser or disabled cookies.');
                 }
 
                 if (cache) {
-                    const er = await cache.match(href);
-                    if (er) {
-                        // console.log('[Extract Text From Image] trained data cache hit');
-                        return er;
+                    const cachedResponse = await cache.match(href);
+                    if (cachedResponse) {
+                        return cachedResponse;
                     }
                 }
 
-                const r = await Reflect.apply(target, self, args).then(validate).catch(e => {
-                    console.warn('[Extract Text From Image] Cannot download the traineddata', href, e);
-                    const path = href.split('.com/')[1];
-
-                    return Reflect.apply(target, self, [`https://github.com/naptha/tessdata/blob/gh-pages/${path}?raw=true`, options]).then(validate);
-                });
-
-                // save
-                if (cache) {
-                    cache.put(href, r.clone());
+                try {
+                    const response = await Reflect.apply(target, self, args).then(validateResponse);
+                    if (cache) {
+                        cache.put(href, response.clone());
+                    }
+                    return response;
+                } catch (error) {
+                    console.warn('[Extract Text From Image] Error downloading traineddata:', href, error);
+                    const fallbackUrl = `https://github.com/naptha/tessdata/blob/gh-pages/${href.split('.com/')[1]}?raw=true`;
+                    return Reflect.apply(target, self, [fallbackUrl, options]).then(validateResponse);
                 }
+            };
 
-                // return
-                return Object.assign(r, {
+            return fetchTrainedData().then(response => {
+                return Object.assign(response, {
                     async arrayBuffer() {
-                        const reader = r.body.getReader();
+                        const reader = response.body.getReader();
                         const chunks = [];
-                        let bytes = 0;
+                        let bytesRead = 0;
+                        const totalLength = Number(response.headers.get('Content-Length'));
 
-                        const length = Number(r.headers.get('Content-Length'));
-
-                        // eslint-disable-next-line no-constant-condition
                         while (true) {
                             const { done, value } = await reader.read();
-                            if (done) {
-                                break;
-                            }
+                            if (done) break;
 
-                            bytes += value.byteLength;
+                            bytesRead += value.byteLength;
                             postMessage({
                                 status: 'progress',
                                 data: {
                                     status: 'loading language traineddata',
-                                    progress: bytes / length
+                                    progress: bytesRead / totalLength
                                 }
                             });
 
                             chunks.push(value);
                         }
-                        const ab = await new Blob(chunks).arrayBuffer();
-                        return ab;
+                        return new Blob(chunks).arrayBuffer();
                     }
                 });
-
             });
-
-            return promise;
-        }
-        else {
+        } else {
             return Reflect.apply(target, self, args);
         }
     }
 });
-
-self.importScripts('tesseract/worker.min.js');
