@@ -130,7 +130,6 @@ https://github.com/user-attachments/assets/a8769d70-4d1e-4b93-a2f5-7692ab313b3f
 
 ## Contribution Guide
  - Make sure to raise an issue before raising a Pull Request.
- - Get the issue assiged.
  - Mention the issue number (`Eg: #4`) while raising a Pull Request in the description.
 
 </br></br>
